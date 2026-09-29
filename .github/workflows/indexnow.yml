@@ -1,0 +1,48 @@
+# Written by site_build.py from template/indexnow-workflow.yml in the Ask-A-Vet repository; a rebuild overwrites it.
+# After every push to main it tells the IndexNow search engines (Bing, Yandex, Seznam, Naver, Yep) which pages were
+# added, changed or deleted, once GitHub Pages serves the new version. To resubmit every page in sitemap.xml, open the
+# Actions tab, choose IndexNow, then Run workflow (or: gh workflow run indexnow.yml -f all=true).
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      all:
+        description: Submit every URL in sitemap.xml (untick to submit the pages changed by the last commit)
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 2
+
+      - name: Submit the new, changed and deleted pages
+        env:
+          EVENT: ${{ github.event_name }}
+          BEFORE: ${{ github.event.before }}
+          ALL: ${{ inputs.all }}
+        run: |
+          if [ "$EVENT" = "workflow_dispatch" ]; then
+            if [ "$ALL" = "true" ]; then
+              python3 .github/indexnow.py --site . --all
+            else
+              python3 .github/indexnow.py --site . --before HEAD~1 --after HEAD --no-wait
+            fi
+          else
+            git fetch --quiet --depth=1 origin "$BEFORE" 2>/dev/null || true
+            python3 .github/indexnow.py --site . --before "$BEFORE" --after "$GITHUB_SHA"
+          fi
