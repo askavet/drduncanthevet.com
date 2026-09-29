@@ -1,0 +1,22 @@
+{
+  "site": "https://drduncanthevet.com",
+  "built": "2026-09-29",
+  "articles": [
+    {
+      "slug": "dog-ate-chocolate",
+      "url": "https://drduncanthevet.com/articles/dog-ate-chocolate/",
+      "path": "/articles/dog-ate-chocolate/",
+      "title": "My dog ate chocolate: how much is dangerous and what to do",
+      "subline": "Work out in 2 minutes whether your dog needs a vet tonight, using the chocolate type and your dog's weight.",
+      "vet_title": "Chocolate (methylxanthine) toxicosis in dogs: dose thresholds, decontamination and treatment",
+      "category": "Pet health and safety",
+      "published": "2026-09-29",
+      "updated": "2026-09-29",
+      "read_min": 11,
+      "sections": 12,
+      "pdf_owner": "dog-ate-chocolate-owner.pdf",
+      "pdf_vet": "dog-ate-chocolate-vet.pdf",
+      "audio_owner": ""
+    }
+  ]
+}
