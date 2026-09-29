@@ -20,6 +20,7 @@
     --lilac: #f3e9fa; --lilac-ghost: #faf6fd; --lilac-hover: #f6effc; --lilac-line: #eadff3; --lilac-btn: #e9d8f2;
     --mint: #ddf2d8; --sky: #e1eefa; --cream: #fff6d5; --butter: #ffe589; --night: #150f1d; --plum: #2b2438;
     --rose-tint: #fdeaea; --rose-ink: #c0392b; /* stand-in pair for the tokens.css alert tint and ink */
+    --mint-chip: #eaf8e4; --mint-chip-ink: #2e7d32; /* tokens.css mint chip pair (not the mint ground) */
     --page: #ffffff; --card: #ffffff; --on-brand: #ffffff; --on-brand-wash: rgba(255, 255, 255, 0.18); --reading: #f3e9fa;
     --gradient-brand: linear-gradient(135deg, var(--brand) 35%, var(--cyan-deep) 140%);
     --gradient-brand-pill: linear-gradient(135deg, var(--brand) 30%, var(--cyan-deep) 130%);
@@ -37,7 +38,7 @@
       --ink: #f4effa; --body: #bdb4c9; --soft: #a79eb5; --mist: #8d849b; --prose: #d9d2e3;
       --lilac: #3a2f4a; --lilac-ghost: #1d1727; --lilac-hover: #2f2740; --lilac-line: #3a3150; --lilac-btn: #4a3d5e;
       --mint: #1e3324; --sky: #1c2a3a; --cream: #3a3220; --night: #0b0810; --plum: #2b2438;
-      --rose-tint: #3a1f1f; --rose-ink: #f08a7e;
+      --rose-tint: #3a1f1f; --rose-ink: #f08a7e; --mint-chip: #1c3322; --mint-chip-ink: #8fd694;
       --page: #150f1d; --card: #221b2e; --on-brand: #150f1d; --on-brand-wash: rgba(21, 15, 29, 0.18); --reading: #3a2f4a;
       --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.45); --shadow-pop: 0 18px 40px rgba(0, 0, 0, 0.5);
     }
@@ -48,7 +49,7 @@
     --ink: #f4effa; --body: #bdb4c9; --soft: #a79eb5; --mist: #8d849b; --prose: #d9d2e3;
     --lilac: #3a2f4a; --lilac-ghost: #1d1727; --lilac-hover: #2f2740; --lilac-line: #3a3150; --lilac-btn: #4a3d5e;
     --mint: #1e3324; --sky: #1c2a3a; --cream: #3a3220; --night: #0b0810; --plum: #2b2438;
-    --rose-tint: #3a1f1f; --rose-ink: #f08a7e;
+    --rose-tint: #3a1f1f; --rose-ink: #f08a7e; --mint-chip: #1c3322; --mint-chip-ink: #8fd694;
     --page: #150f1d; --card: #221b2e; --on-brand: #150f1d; --reading: #3a2f4a;
     --shadow-card: 0 18px 40px rgba(0, 0, 0, 0.45); --shadow-pop: 0 18px 40px rgba(0, 0, 0, 0.5);
   }
@@ -251,6 +252,71 @@
   .aav-callout-toc .aav-toc-note { margin: 14px 0 0; font-size: 12.5px; color: var(--body); }
   .article .aav-callout a { text-decoration: none; }
 
+  /* End-of-article quiz, one per version (quiz.json, custom.quiz_json on the storefront). The tool-flow wizard recipe:
+     a white radius-28 card, 8px progress segments (upcoming lilac-line, current gradient, answered green or red),
+     selection cards and never a visible radio, a full-width dark Next pill; then a score screen whose one gradient CTA
+     is Share. Letters and words only, no icons. Hidden in print (aav-no-print) and never read by Listen (data-skip). */
+  .quiz { margin: 72px 0 0; scroll-margin-top: calc(var(--head-h) + var(--bar-h) + var(--player-h) + 24px + env(safe-area-inset-top, 0px)); }
+  .quiz-eyebrow { margin: 0 0 14px; font-size: 15px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; line-height: 1.2; background: var(--gradient-brand-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+  .quiz-title { margin: 0 0 12px; font-size: clamp(26px, 2.6vw, 32px); line-height: 1.2; font-weight: 600; letter-spacing: -0.7px; color: var(--ink); text-wrap: balance; }
+  .quiz-lede { margin: 0 0 24px; font-size: 16.5px; line-height: 1.65; color: var(--body); text-wrap: pretty; }
+  .quiz-card { background: var(--card); border: 1px solid var(--lilac-line); border-radius: 28px; padding: clamp(22px, 3vw, 34px); box-shadow: 0 18px 44px rgba(21, 15, 29, 0.07); scroll-margin-top: calc(var(--head-h) + var(--bar-h) + var(--player-h) + 24px + env(safe-area-inset-top, 0px)); }
+  .quiz-progress { display: flex; flex-direction: column; gap: 10px; margin: 0 0 22px; }
+  .quiz-segs { display: flex; gap: 6px; }
+  .quiz-segs i { flex: 1; min-width: 0; height: 8px; border-radius: 999px; background: var(--lilac-line); transition: background 250ms var(--ease); }
+  .quiz-segs i.now { background: linear-gradient(90deg, var(--brand), var(--cyan)); }
+  .quiz-segs i.right { background: var(--mint-chip-ink); }
+  .quiz-segs i.wrong { background: var(--rose-ink); }
+  .quiz-count { margin: 0; font-size: 12px; font-weight: 600; line-height: 1.3; color: var(--soft); font-variant-numeric: tabular-nums; }
+  .quiz-step { animation: quiz-in 0.4s var(--ease) both; }
+  @keyframes quiz-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .quiz-kicker { margin: 0 0 8px; font-size: 11.5px; font-weight: 700; letter-spacing: 1.3px; text-transform: uppercase; line-height: 1.3; background: var(--gradient-brand-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+  .quiz-q { margin: 0 0 18px; font-size: 22px; line-height: 1.35; font-weight: 600; letter-spacing: -0.3px; color: var(--ink); text-wrap: pretty; outline: none; }
+  .quiz-opts { display: flex; flex-direction: column; gap: 10px; }
+  .quiz-opt { display: flex; align-items: center; gap: 12px; width: 100%; min-height: 52px; margin: 0; text-align: left; background: var(--card); border: 1.5px solid var(--lilac-line); border-radius: 15px; padding: 13px 16px; color: var(--ink); font-size: 15px; font-weight: 500; line-height: 1.45; cursor: pointer; transition: border-color 200ms var(--ease), background 200ms var(--ease), color 200ms var(--ease); }
+  .quiz-opt:hover { border-color: var(--brand); background: var(--lilac-hover); }
+  .quiz-letter { flex: none; width: 28px; height: 28px; border-radius: 50%; background: var(--lilac); color: var(--brand-deep); font-size: 12.5px; font-weight: 700; line-height: 1; display: grid; place-items: center; }
+  .quiz-text { flex: 1; min-width: 0; overflow-wrap: anywhere; }
+  .quiz-tag { flex: none; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; line-height: 1.2; border-radius: 999px; padding: 5px 10px; background: var(--card); }
+  .quiz-opts.answered .quiz-opt { cursor: default; }
+  .quiz-opts.answered .quiz-opt:hover { border-color: var(--lilac-line); background: var(--card); }
+  .quiz-opts.answered .quiz-opt.muted { color: var(--soft); }
+  .quiz-opts .quiz-opt.is-right, .quiz-opts.answered .quiz-opt.is-right:hover { background: var(--mint-chip); border-color: var(--mint-chip-ink); color: var(--ink); }
+  .quiz-opt.is-right .quiz-letter { background: var(--mint-chip-ink); color: var(--card); }
+  .quiz-opt.is-right .quiz-tag { color: var(--mint-chip-ink); }
+  .quiz-opts .quiz-opt.is-wrong, .quiz-opts.answered .quiz-opt.is-wrong:hover { background: var(--rose-tint); border-color: var(--rose-ink); color: var(--ink); }
+  .quiz-opt.is-wrong .quiz-letter { background: var(--rose-ink); color: var(--card); }
+  .quiz-opt.is-wrong .quiz-tag { color: var(--rose-ink); }
+  .quiz-feedback { margin: 16px 0 0; border-radius: 16px; padding: 16px 18px; }
+  .quiz-feedback.is-right { background: var(--mint-chip); }
+  .quiz-feedback.is-wrong { background: var(--rose-tint); }
+  .quiz-verdict { margin: 0 0 6px; font-size: 15px; font-weight: 700; line-height: 1.45; outline: none; }
+  .quiz-feedback.is-right .quiz-verdict { color: var(--mint-chip-ink); }
+  .quiz-feedback.is-wrong .quiz-verdict { color: var(--rose-ink); }
+  .quiz-why { margin: 0 0 10px; font-size: 15px; line-height: 1.6; color: var(--ink); overflow-wrap: anywhere; }
+  .quiz-read, .quiz-missed a { font-size: 14px; font-weight: 600; color: var(--brand-deep); text-decoration: underline; text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  .quiz-read:hover, .quiz-missed a:hover { color: var(--brand); }
+  .quiz-next { display: block; width: 100%; min-height: 50px; margin: 18px 0 0; border: 0; border-radius: 999px; background: var(--night); color: #ffffff; font-size: 15px; font-weight: 600; cursor: pointer; transition: background 200ms var(--ease); }
+  .quiz-next:hover { background: var(--plum); }
+  .quiz-result { text-align: center; }
+  .quiz-score { margin: 2px 0 10px; line-height: 1; outline: none; }
+  .quiz-num { font-size: clamp(64px, 9vw, 88px); font-weight: 600; letter-spacing: -2px; font-variant-numeric: tabular-nums; background: var(--gradient-brand-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+  .quiz-of { margin-left: 8px; font-size: 20px; font-weight: 600; color: var(--soft); }
+  .quiz-band { margin: 0 auto 22px; max-width: 480px; font-size: 16.5px; line-height: 1.6; color: var(--body); text-wrap: pretty; }
+  .quiz-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .quiz-btn { min-height: 48px; border-radius: 26px; padding: 13px 28px; font-size: 14.5px; font-weight: 600; line-height: 1.2; cursor: pointer; transition: transform 250ms var(--ease), color 200ms var(--ease), border-color 200ms var(--ease); }
+  .quiz-btn.primary { border: 0; background: var(--gradient-brand); color: var(--on-brand); }
+  .quiz-btn.primary:hover { transform: scale(1.04); }
+  .quiz-btn.outline { background: var(--card); border: 1.5px solid var(--lilac-line); color: var(--ink); }
+  .quiz-btn.outline:hover { color: var(--brand); border-color: var(--brand); }
+  .quiz-review { margin: 28px 0 0; padding-top: 22px; border-top: 1px solid var(--lilac-line); text-align: left; }
+  .quiz-review-title { margin: 0 0 12px; font-size: 13px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; line-height: 1.2; background: var(--gradient-brand-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
+  .quiz-missed { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+  .quiz-missed li { background: var(--lilac-ghost); border: 1px solid var(--lilac-line); border-radius: 15px; padding: 12px 16px; }
+  .quiz-missed-q { display: block; margin: 0 0 4px; font-size: 14.5px; font-weight: 600; line-height: 1.45; color: var(--ink); overflow-wrap: anywhere; }
+  @media (max-width: 767px) { .quiz { margin-top: 56px; } .quiz-q { font-size: 19.5px; } .quiz-actions .quiz-btn { flex: 1 1 100%; } }
+  @media (max-width: 560px) { .quiz-opt { flex-wrap: wrap; row-gap: 8px; } .quiz-text { flex-basis: calc(100% - 40px); } .quiz-tag { margin-left: 40px; } } /* the tag drops under the option text instead of squeezing it */
+
   /* Newsletter band closing the page (stand-in for the storefront's shared NewsletterBand; the copy is the band's own) */
   .newsletter { background: var(--cream); margin-top: 72px; padding-block: 72px; }
   .newsletter .inner { max-width: 760px; margin-inline: auto; text-align: center; }
@@ -328,7 +394,7 @@
   .site-foot a:hover { color: var(--brand); }
   @media (max-width: 767px) { .site-foot { margin-top: 44px; padding-block: 32px; } }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "My dog ate chocolate: how much is dangerous and what to do", "description": "Work out in 2 minutes whether your dog needs a vet tonight, using the chocolate type and your dog's weight.", "url": "https://drduncanthevet.com/articles/dog-ate-chocolate/", "author": {"@type": "Person", "name": "Dr Duncan Houston", "jobTitle": "Emergency and critical care veterinarian", "url": "https://drduncanthevet.com/"}, "publisher": {"@type": "Person", "name": "Dr Duncan Houston", "url": "https://drduncanthevet.com/"}, "datePublished": "2026-09-29", "dateModified": "2026-09-29", "mainEntityOfPage": "https://drduncanthevet.com/articles/dog-ate-chocolate/", "inLanguage": "en", "articleSection": "Pet health and safety", "isAccessibleForFree": true}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "My dog ate chocolate: how much is dangerous and what to do", "description": "Work out in 2 minutes whether your dog needs a vet tonight, using the chocolate type and your dog's weight.", "url": "https://drduncanthevet.com/articles/dog-ate-chocolate/", "author": {"@type": "Person", "name": "Dr Duncan Houston", "jobTitle": "Emergency and critical care veterinarian", "url": "https://drduncanthevet.com/"}, "publisher": {"@type": "Person", "name": "Dr Duncan Houston", "url": "https://drduncanthevet.com/"}, "datePublished": "2026-09-29", "dateModified": "2026-09-30", "mainEntityOfPage": "https://drduncanthevet.com/articles/dog-ate-chocolate/", "inLanguage": "en", "articleSection": "Pet health and safety", "isAccessibleForFree": true}</script>
 </head>
 <body>
 
@@ -654,6 +720,12 @@
 <p>If you are sitting up tonight watching a dog who found the chocolate, log the time, the grams and each vomit in <a href="https://askavet.com">ASK A VET™</a>, where you can track symptoms hour by hour and ask a vet directly in the app when something changes.</p>
 <!-- /aav-callout -->
     </article>
+    <section class="quiz aav-no-print" id="quiz" data-quiz="owner" data-skip hidden aria-labelledby="quizTitleOwner">
+      <p class="quiz-eyebrow">Test yourself</p>
+      <h2 class="quiz-title" id="quizTitleOwner">How much do you remember?</h2>
+      <p class="quiz-lede"></p>
+      <div class="quiz-card"></div>
+    </section>
     </div></div>
   </section>
 
@@ -889,6 +961,12 @@
 <p>Owners discharged with a low-dose dog can log the ingestion time, the calculated dose and every vomit or heart-rate check in <a href="https://askavet.com">ASK A VET™</a>, which tracks a patient's signs hour by hour and puts the owner in chat with a certified vet when a return trigger is met.</p>
 <!-- /aav-callout -->
     </article>
+    <section class="quiz aav-no-print" id="vet-quiz" data-quiz="vet" data-skip hidden aria-labelledby="quizTitleVet">
+      <p class="quiz-eyebrow">Test yourself</p>
+      <h2 class="quiz-title" id="quizTitleVet">Test your clinical recall</h2>
+      <p class="quiz-lede"></p>
+      <div class="quiz-card"></div>
+    </section>
     </div></div>
   </section>
 <footer class="site-foot"><div class="page row"><span>&copy; 2026 Dr Duncan Houston. Emergency and critical care veterinarian.</span><span><a href="https://askavet.com">ASK A VET™</a> <a href="https://woopf.com">WOOPF™</a> <a href="https://purrz.com">PURRZ™</a> <a href="https://www.instagram.com/drduncanthevet/">Instagram</a></span></div></footer>
@@ -896,8 +974,8 @@
 
 <div class="overlay" id="overlay" hidden></div>
 <div class="panel dialog" id="sharePanel" hidden role="dialog" aria-modal="true" aria-label="Share this article">
-  <p class="ptitle">Share this article <button class="close" data-close aria-label="Close"><svg data-icon="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></p>
-  <div class="vrow"><span>Link opens the</span>
+  <p class="ptitle"><span id="shareTitle">Share this article</span> <button class="close" data-close aria-label="Close"><svg data-icon="x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg></button></p>
+  <div class="vrow" id="shareVrow"><span>Link opens the</span>
     <div class="seg small" role="group" aria-label="Version to share"><button class="segbtn" data-sv="owner" aria-pressed="true">Owner version</button><button class="segbtn" data-sv="vet" aria-pressed="false">Veterinary</button></div>
   </div>
   <div class="copyrow"><input id="shareUrl" readonly aria-label="Article link" value=""><button class="pill primary" id="copyBtn">Copy link</button></div>
@@ -1043,7 +1121,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   }
   function togglePop(id, trigger) { if (isOpen(id)) { closePops(); refocus(); } else openPop(id, trigger); }
   sectionsBtn.addEventListener('click', function () { togglePop('sections', sectionsBtn); });
-  shareBtn.addEventListener('click', function () { shareVersion = 'owner'; togglePop('share', shareBtn); });
+  shareBtn.addEventListener('click', function () { shareVersion = 'owner'; shareMode = 'article'; togglePop('share', shareBtn); });
   qrBtn.addEventListener('click', function () { qrVersion = 'owner'; togglePop('qr', qrBtn); });
   moreBtn.addEventListener('click', function () { togglePop('more', moreBtn); });
   document.addEventListener('click', function (e) {
@@ -1065,7 +1143,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     b.addEventListener('click', function () {
       var what = b.getAttribute('data-open');
       if (what === 'print') { closePops(); doPrint(); return; }
-      if (what === 'share') shareVersion = 'owner'; if (what === 'qr') qrVersion = 'owner';
+      if (what === 'share') { shareVersion = 'owner'; shareMode = 'article'; } if (what === 'qr') qrVersion = 'owner';
       openPop(what, moreBtn);
     });
   });
@@ -1089,6 +1167,13 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
         sectionsMenu.appendChild(a);
       });
     });
+    var qz = quizzes[active];
+    if (qz) {
+      var qc = document.createElement('div'); qc.className = 'cat'; qc.textContent = 'Test yourself'; sectionsMenu.appendChild(qc);
+      var qa = document.createElement('a'); qa.href = '#' + qz.id; qa.textContent = 'Take the ' + qz.qs.length + '-question quiz'; qa.setAttribute('data-id', qz.id);
+      qa.addEventListener('click', function (e) { e.preventDefault(); closePops(); jumpTo(qz.id); });
+      sectionsMenu.appendChild(qa);
+    }
   }
   function jumpTo(id) {
     var el = document.getElementById(id); if (!el) return;
@@ -1135,9 +1220,18 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     { id: 'wechat', name: 'WeChat', color: '#07C160', letter: 'We', qr: true }
   ];
   var shareVersion = 'owner', qrVersion = 'owner';
+  var shareMode = 'article', quizShare = null; /* 'quiz' while the dialog shares a quiz score: {v, id, score, total} */
   var shareUrlInput = document.getElementById('shareUrl'), shareGrid = document.getElementById('shareGrid'), nativeShareBtn = document.getElementById('nativeShareBtn');
+  var shareTitle = document.getElementById('shareTitle'), shareVrow = document.getElementById('shareVrow'), copyBtn = document.getElementById('copyBtn');
+  function quizShareUrl() { return baseUrl() + '#' + quizShare.id; }
+  function quizShareText() { return 'I scored ' + quizShare.score + '/' + quizShare.total + ' on the quiz for "' + titleFor(quizShare.v) + '" by Dr Duncan Houston. Can you beat it?'; }
   function renderShare() {
-    var u = urlFor(shareVersion), t = titleFor(shareVersion);
+    var quiz = shareMode === 'quiz' && !!quizShare;
+    var u = quiz ? quizShareUrl() : urlFor(shareVersion), t = quiz ? quizShareText() : titleFor(shareVersion);
+    shareTitle.textContent = quiz ? 'Share your score' : 'Share this article';
+    sharePanel.setAttribute('aria-label', quiz ? 'Share your quiz score' : 'Share this article');
+    shareVrow.hidden = quiz;
+    copyBtn.textContent = quiz ? 'Copy score' : 'Copy link';
     shareUrlInput.value = u;
     Array.prototype.forEach.call(sharePanel.querySelectorAll('[data-sv]'), function (b) { b.setAttribute('aria-pressed', String(b.getAttribute('data-sv') === shareVersion)); });
     shareGrid.innerHTML = '';
@@ -1148,7 +1242,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
       else { a.href = ch.url(u, t); if (/^https?:/.test(a.href)) { a.target = '_blank'; a.rel = 'noopener noreferrer'; } }
       a.innerHTML = '<span class="dot" style="background:' + ch.color + '">' + ch.letter + '</span><span>' + ch.name + '</span>';
       a.addEventListener('click', function (e) {
-        track('share_click', { channel: ch.id, version: shareVersion });
+        if (quiz) track('quiz_share', { channel: ch.id, score: quizShare.score, total: quizShare.total }); else track('share_click', { channel: ch.id, version: shareVersion });
         if (ch.qr) { e.stopPropagation(); qrVersion = shareVersion; openPop('qr', shareBtn); }
       });
       shareGrid.appendChild(a);
@@ -1156,19 +1250,23 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
     nativeShareBtn.hidden = !(navigator.share) || inViewer;
   }
   Array.prototype.forEach.call(sharePanel.querySelectorAll('[data-sv]'), function (b) { b.addEventListener('click', function () { shareVersion = b.getAttribute('data-sv'); renderShare(); }); });
-  function copyText(text, input) {
-    var done = function () { say('Link copied'); track('share_click', { channel: 'copy', version: shareVersion }); };
+  function copyText(text, input, onDone) {
+    var done = onDone || function () { say('Link copied'); track('share_click', { channel: 'copy', version: shareVersion }); };
     var fail = function () { if (input) { input.focus(); input.select(); } say('Press Ctrl+C or Cmd+C to copy the link'); };
     try {
       if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, fail);
       else fail();
     } catch (e) { fail(); }
   }
-  document.getElementById('copyBtn').addEventListener('click', function () { copyText(shareUrlInput.value, shareUrlInput); });
+  copyBtn.addEventListener('click', function () {
+    if (shareMode === 'quiz' && quizShare) copyText(quizShareText() + ' ' + quizShareUrl(), shareUrlInput, function () { say('Score and link copied'); track('quiz_share', { channel: 'copy', score: quizShare.score, total: quizShare.total }); });
+    else copyText(shareUrlInput.value, shareUrlInput);
+  });
   shareUrlInput.addEventListener('focus', function () { shareUrlInput.select(); });
   nativeShareBtn.addEventListener('click', function () {
-    var data = { title: titleFor(shareVersion), text: titleFor(shareVersion) + ' by Dr Duncan Houston', url: urlFor(shareVersion) };
-    try { navigator.share(data).then(function () { track('share_click', { channel: 'native', version: shareVersion }); }, function (err) { if (!err || err.name !== 'AbortError') say('Sharing from this device is not available here. Use a channel below or copy the link.'); }); }
+    var quiz = shareMode === 'quiz' && !!quizShare;
+    var data = quiz ? { title: titleFor(quizShare.v), text: quizShareText(), url: quizShareUrl() } : { title: titleFor(shareVersion), text: titleFor(shareVersion) + ' by Dr Duncan Houston', url: urlFor(shareVersion) };
+    try { navigator.share(data).then(function () { if (quiz) track('quiz_share', { channel: 'native', score: quizShare.score, total: quizShare.total }); else track('share_click', { channel: 'native', version: shareVersion }); }, function (err) { if (!err || err.name !== 'AbortError') say('Sharing from this device is not available here. Use a channel below or copy the link.'); }); }
     catch (e) { say('Sharing from this device is not available here. Use a channel below or copy the link.'); }
   });
   document.getElementById('toQr').addEventListener('click', function (e) { e.preventDefault(); e.stopPropagation(); qrVersion = shareVersion; openPop('qr', shareBtn); });
@@ -1535,6 +1633,144 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   });
   window.addEventListener('pagehide', function () { cancelSpeech(); stopStudio(); });
 
+  /* ---------- Quiz: one per version under the article, one question at a time, a score at the end ----------
+     QUIZ is quiz.json without its evidence field ({schema, owner: [...], vet: [...]}; custom.quiz_json on the storefront),
+     or null for an article without a quiz, which then shows none. Each question links to the heading its answer comes
+     from; the page keeps each version's place in memory, so Read the section and coming back via Sections loses nothing. */
+  var QUIZ = {"schema":1,"owner":[{"id":"o1","question":"Your dog has just eaten a piece of dark chocolate. What is the right move?","options":["Wait a few hours to see if signs appear","Call a vet now","Make your dog vomit with salt water","Give activated charcoal from a pharmacy"],"answer":1,"explanation":"Any dark or baking chocolate means a call to the vet now. Signs take 2 to 12 hours to start, and waiting for them uses up the hours when the vet can still remove it.","section":"quick-answer"},{"id":"o2","question":"Your dog's calculated dose is above 40 mg/kg. Which tier is that?","options":["Monitor at home for 24 hours","Call your regular vet within the hour","Go to an emergency vet now","Wait for signs, then call the vet"],"answer":2,"explanation":"A calculated dose above 40 mg/kg sits in the go-now tier, alongside a racing heart, tremors, a seizure or collapse. Heart signs start between 40 and 50 mg/kg.","section":"how-urgent-is-this"},{"id":"o3","question":"Why can a dog look fine at hour 4 and be trembling at hour 10?","options":["Theobromine is absorbed and cleared slowly","The fat in chocolate turns toxic overnight","Dogs only react once the sugar wears off","The signs at hour 10 come from a different illness"],"answer":0,"explanation":"Theobromine peaks in the blood about 10 hours after eating, and half the dose is still there at 17.5 hours. A calm dog at hour 4 is not in the clear.","section":"why-is-this-happening"},{"id":"o4","question":"An 18 kg dog eats 30 g of dark chocolate at 5.7 mg/g. What dose did it take in?","options":["9.5 mg/kg","1.7 mg/kg","95 mg/kg","171 mg/kg"],"answer":0,"explanation":"Multiply the grams by the mg/g figure, then divide by the weight: 30 x 5.7 / 18 = 9.5 mg/kg. That is under the 20 mg/kg line where signs begin.","section":"how-much-chocolate-is-dangerous-for-my-dog"},{"id":"o5","question":"Which of these signs means go to an emergency vet now?","options":["Drinking a little more water than usual","One vomit, then back to normal","A little restless for a short while","Muscle tremors"],"answer":3,"explanation":"Tremors come before seizures, so a trembling dog goes to a vet now. Mild thirst, restlessness or 1 vomit sit in the call-within-the-hour tier.","section":"signs-that-mean-emergency"},{"id":"o6","question":"Should you make your dog vomit at home with hydrogen peroxide or salt?","options":["Yes, if it happened within the last hour","No, wait until your dog vomits on its own","Yes, but only a small amount","No, leave vomiting to the vet"],"answer":3,"explanation":"Peroxide damages the stomach lining and esophagus, and salt causes a sodium overdose that is its own emergency. If vomiting will help, your vet brings it on with an injection.","section":"what-to-do-right-now"},{"id":"o7","question":"More than 1 hour has passed since your dog ate the chocolate. Is a vet visit still worth it?","options":["No, after the first hour vomiting no longer helps at all","Yes, chocolate fat slows stomach emptying","Only if your dog has already vomited","Only once signs have started"],"answer":1,"explanation":"Chocolate fat slows stomach emptying, so the vet can often still remove it after the first hour. Go now if the dose is 20 mg/kg or higher.","section":"what-to-do-right-now"},{"id":"o8","question":"Why is activated charcoal given by the vet and not at home?","options":["It only works as an injection","It makes chocolate more toxic","It can cause a dangerous rise in blood sodium","It only works in the first 10 minutes after eating"],"answer":2,"explanation":"Charcoal pulls water into the gut, so it needs a vet-chosen dose with IV fluids and sodium checks. One dog given charcoal after eating chocolate needed a ventilator.","section":"what-will-the-vet-do"},{"id":"o9","question":"Your dog vomited once after eating chocolate and now seems settled. Can you stop watching?","options":["Yes, the vomit brought all of the chocolate back up again","No, keep watching for another hour or two","Yes, as long as your dog is eating again","No, absorbed theobromine keeps working for over a day"],"answer":3,"explanation":"With a 17.5 hour half-life, the theobromine already absorbed keeps working for more than a day. One vomit is not the all-clear, so watch for a full 24 hours.","section":"common-mistakes-owners-make"},{"id":"o10","question":"Your dog ate some white chocolate. What is the main risk?","options":["Chocolate poisoning, the same as dark chocolate","An upset gut from the fat and sugar","A seizure within the hour","There is no risk of any kind"],"answer":1,"explanation":"White chocolate carries almost no methylxanthines, so it does not cause chocolate poisoning at normal amounts. The fat and sugar can still cause vomiting or diarrhea, and a large fatty meal can trigger pancreatitis.","section":"is-white-chocolate-dangerous-to-dogs"}],"vet":[{"id":"v1","question":"At what total methylxanthine dose do cardiotoxic effects begin in dogs?","options":["40 to 50 mg/kg","10 to 20 mg/kg","60 to 80 mg/kg","100 mg/kg and above"],"answer":0,"explanation":"Mild signs begin at about 20 mg/kg, cardiotoxic effects at 40 to 50 mg/kg and seizures at 60 mg/kg and above.","section":"vet-clinical-summary"},{"id":"v2","question":"A clinically normal dog has a calculated dose of 30 mg/kg. What is the disposition?","options":["Home monitoring for 24 hours","Admit for continuous ECG and IV fluids","Same-day emesis, then observation","Charcoal every 3 hours for 72 hours"],"answer":2,"explanation":"The 20 to 40 mg/kg band gets same-day emesis when the dog is clinically normal, then observation. Admission with an ECG and IV fluids starts at 40 mg/kg or with signs.","section":"vet-triage-tiers"},{"id":"v3","question":"What is the half-life of theobromine in dogs?","options":["4.5 hours","10 hours","24 hours","17.5 hours"],"answer":3,"explanation":"The theobromine half-life is 17.5 hours against 4.5 hours for caffeine, and plasma theobromine peaks at about 10 hours. That tail sets the monitoring window.","section":"vet-pathophysiology-and-toxicokinetics"},{"id":"v4","question":"Which of these gives a 5 kg dog a dose of about 20 mg/kg?","options":["43 g of dark chocolate","6 g of baking chocolate","17 g of milk chocolate","12 g of white chocolate"],"answer":1,"explanation":"At 16 mg/g, 6 g of baking chocolate brings a 5 kg dog to about 20 mg/kg. Double the grams for the 40 mg/kg cardiac band and triple them for the 60 mg/kg seizure band.","section":"vet-dose-calculation-and-thresholds"},{"id":"v5","question":"In dogs with signs after eating chocolate, which examination finding was most common?","options":["Hyperthermia","Tachypnea or panting","Sinus tachycardia","Dehydration"],"answer":2,"explanation":"Sinus tachycardia was found in 28 of 44 dogs with signs, ahead of tachypnea or panting in 14, hyperthermia in 10 and dehydration in 7.","section":"vet-clinical-signs-by-severity"},{"id":"v6","question":"An owner phones: their dog ate chocolate and the clinic is nearby. What do you advise about emesis?","options":["Give 3% hydrogen peroxide at home first","No home emesis; bring the dog in","Give a teaspoon of salt at home first","Wait for the dog to vomit on its own"],"answer":1,"explanation":"Prehospital emesis has no evidence of benefit in toxin ingestion and carries risk, so the dog comes straight in. Field emesis is reserved for a remote location on veterinary or poison center advice.","section":"vet-telephone-triage-advice"},{"id":"v7","question":"Why is 3% hydrogen peroxide not used as an emetic in the clinic?","options":["It fails to induce vomiting in most dogs","It interacts with activated charcoal","It takes over an hour to work","It injures the gastric mucosa"],"answer":3,"explanation":"Hydrogen peroxide works about as well as apomorphine, 90% against 94%, but it produced gastric mucosal lesions in every dog given it.","section":"vet-decontamination-treatment-and-monitoring"},{"id":"v8","question":"Activated charcoal has been given. What has to go with it?","options":["IV fluids and serial sodium checks","Blood glucose checks every hour","Liver enzymes rechecked at 72 hours after the last dose","A second emetic 2 hours later"],"answer":0,"explanation":"IV fluids go with charcoal every time, and sodium is checked at presentation and at 6 to 12, 12 to 24 and 24 to 48 hours. One dog reached a sodium of 174 mmol/L.","section":"vet-decontamination-treatment-and-monitoring"},{"id":"v9","question":"A dog in the cardiac band looks normal at 6 hours. Why is discharge a mistake?","options":["Charcoal must be repeated every 3 hours for a full 72 hours first","Sodium always peaks after 6 hours","Onset runs to 12 hours and the half-life is 17.5 hours","Emesis has to be repeated at 8 hours"],"answer":2,"explanation":"Signs can begin up to 12 hours after ingestion and the theobromine half-life is 17.5 hours, so a cardiac-band dog stays on the ECG through at least 1 half-life.","section":"vet-common-management-errors"},{"id":"v10","question":"Which agent is the usual choice to induce emesis in a cat?","options":["3% hydrogen peroxide","Ropinirole eye drops","Intranasal apomorphine at the canine dose","IM dexmedetomidine or medetomidine"],"answer":3,"explanation":"IM dexmedetomidine or medetomidine is the usual feline choice, and dexmedetomidine produced emesis in 13 of 16 cats. Cats vomit less reliably than dogs: 58% against 99%.","section":"vet-do-cats-need-the-same-protocol"}]};
+  var LETTERS = ['A', 'B', 'C', 'D'];
+  var QUIZ_BANDS = [ /* [lowest share correct, message]: the first band the score reaches */
+    [1, 'Full marks. You know this one inside out.'],
+    [0.8, 'Strong result. One more look at the sections you missed and you have it covered.'],
+    [0.5, 'Good start. The sections below are worth a second read before you need them.'],
+    [0, 'Worth a second read. Start with the sections below, then take the quiz again.']
+  ];
+  var quizzes = {};
+  /* A double click on Next (or on See your score) must not also answer the next question or press Share: the second
+     click of a double click (detail 2) and any click in the first 250ms after a screen appears are ignored. Keyboard
+     activation has detail 0 and focus moves to the new heading first, so it is never caught by this. */
+  function stray(q, e) { return (e && e.detail > 1) || new Date().getTime() < q.readyAt; }
+  function mk(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined && text !== null) e.textContent = text; return e; }
+  function sectionOf(id) { /* the heading a question links to, and the category of the H2 it sits under */
+    var h = id ? document.getElementById(id) : null; if (!h || !h.closest('.article')) return null;
+    var h2 = h; while (h2 && h2.tagName !== 'H2') h2 = h2.previousElementSibling;
+    var s = h2 ? SECTIONS.filter(function (x) { return x.owner_id === h2.id || x.vet_id === h2.id; })[0] : null;
+    return { id: id, heading: h.textContent.replace(/\s+/g, ' ').trim(), category: s ? s.category : '' };
+  }
+  function readLink(cls, label, item) {
+    var sec = sectionOf(item.section); if (!sec) return null;
+    var a = mk('a', cls, label + sec.heading); a.href = '#' + sec.id;
+    a.addEventListener('click', function (e) { e.preventDefault(); track('quiz_read', { question: item.id, section: sec.id }); jumpTo(sec.id); });
+    return a;
+  }
+  function keepCardInView(q) { var r = q.card.getBoundingClientRect(); if (r.top < barTop() || r.top > window.innerHeight * 0.6) q.card.scrollIntoView({ block: 'start', behavior: reduced ? 'auto' : 'smooth' }); }
+  function progressRow(q, done) {
+    var row = mk('div', 'quiz-progress'), segs = mk('div', 'quiz-segs'); segs.setAttribute('aria-hidden', 'true');
+    q.qs.forEach(function (item, k) {
+      var seg = mk('i'), a = q.answers[k];
+      if (a !== undefined) seg.className = a === item.answer ? 'right' : 'wrong'; else if (!done && k === q.i) seg.className = 'now';
+      segs.appendChild(seg);
+    });
+    row.appendChild(segs);
+    row.appendChild(mk('p', 'quiz-count', done ? 'Quiz complete' : 'Question ' + (q.i + 1) + ' of ' + q.qs.length));
+    return row;
+  }
+  function renderQuestion(q, focus) {
+    var item = q.qs[q.i], sec = sectionOf(item.section);
+    q.readyAt = new Date().getTime() + 250;
+    q.card.innerHTML = '';
+    q.card.appendChild(progressRow(q, false));
+    var step = mk('div', 'quiz-step');
+    if (sec && sec.category) step.appendChild(mk('p', 'quiz-kicker', sec.category));
+    var h = mk('h3', 'quiz-q', item.question); h.id = q.id + '-question'; h.setAttribute('tabindex', '-1'); step.appendChild(h);
+    var opts = mk('div', 'quiz-opts'); opts.setAttribute('role', 'group'); opts.setAttribute('aria-labelledby', h.id);
+    item.options.forEach(function (text, k) {
+      var b = mk('button', 'quiz-opt'); b.type = 'button'; b.setAttribute('data-choice', LETTERS[k]);
+      var letter = mk('span', 'quiz-letter', LETTERS[k]); letter.setAttribute('aria-hidden', 'true');
+      b.appendChild(letter); b.appendChild(mk('span', 'quiz-text', text));
+      b.addEventListener('click', function (e) { if (!stray(q, e)) answer(q, k); });
+      opts.appendChild(b);
+    });
+    step.appendChild(opts);
+    q.card.appendChild(step);
+    if (focus) { keepCardInView(q); h.focus({ preventScroll: true }); }
+  }
+  function answer(q, k) {
+    if (q.done || q.answers[q.i] !== undefined) return;
+    var item = q.qs[q.i], right = k === item.answer, last = q.i === q.qs.length - 1;
+    q.answers[q.i] = k;
+    if (!q.started) { q.started = true; track('quiz_start', { questions: q.qs.length }); }
+    track('quiz_answer', { question: item.id, number: q.i + 1, correct: right, choice: LETTERS[k] });
+    var step = q.card.querySelector('.quiz-step'), opts = step.querySelector('.quiz-opts');
+    opts.classList.add('answered');
+    Array.prototype.forEach.call(opts.children, function (b, j) {
+      b.setAttribute('aria-disabled', 'true');
+      var tag = null;
+      if (j === item.answer) { b.classList.add('is-right'); tag = j === k ? 'Correct' : 'Correct answer'; }
+      else if (j === k) { b.classList.add('is-wrong'); tag = 'Your answer'; }
+      else b.classList.add('muted');
+      if (tag) b.appendChild(mk('span', 'quiz-tag', tag));
+    });
+    var seg = q.card.querySelectorAll('.quiz-segs i')[q.i]; if (seg) seg.className = right ? 'right' : 'wrong';
+    var fb = mk('div', 'quiz-feedback ' + (right ? 'is-right' : 'is-wrong'));
+    var verdict = mk('p', 'quiz-verdict', right ? 'Correct.' : 'Not quite. The answer is ' + LETTERS[item.answer] + ': ' + item.options[item.answer].replace(/[.!?]+$/, '') + '.');
+    verdict.setAttribute('tabindex', '-1'); fb.appendChild(verdict);
+    fb.appendChild(mk('p', 'quiz-why', item.explanation));
+    var read = readLink('quiz-read', 'Read the section: ', item); if (read) fb.appendChild(read);
+    step.appendChild(fb);
+    var next = mk('button', 'quiz-next', last ? 'See your score' : 'Next question'); next.type = 'button';
+    next.addEventListener('click', function () { if (last) renderResult(q, true); else { q.i++; renderQuestion(q, true); } });
+    step.appendChild(next);
+    try { next.scrollIntoView({ block: 'nearest', behavior: reduced ? 'auto' : 'smooth' }); } catch (e) {}
+    verdict.focus({ preventScroll: true });
+  }
+  function renderResult(q, focus) {
+    var total = q.qs.length, n = 0;
+    q.qs.forEach(function (item, k) { if (q.answers[k] === item.answer) n++; });
+    var share = n / total; q.done = true; q.score = n;
+    q.readyAt = new Date().getTime() + 250;
+    q.card.innerHTML = '';
+    q.card.appendChild(progressRow(q, true));
+    var step = mk('div', 'quiz-step quiz-result');
+    step.appendChild(mk('p', 'quiz-kicker', 'Your score'));
+    var score = mk('p', 'quiz-score'); score.setAttribute('tabindex', '-1');
+    score.appendChild(mk('span', 'quiz-num', String(n))); score.appendChild(mk('span', 'quiz-of', 'out of ' + total));
+    step.appendChild(score);
+    step.appendChild(mk('p', 'quiz-band', QUIZ_BANDS.filter(function (b) { return share >= b[0]; })[0][1]));
+    var actions = mk('div', 'quiz-actions');
+    var shareBtnQ = mk('button', 'quiz-btn primary', 'Share my score'); shareBtnQ.type = 'button';
+    shareBtnQ.addEventListener('click', function (e) { e.stopPropagation(); if (stray(q, e)) return; shareMode = 'quiz'; quizShare = { v: q.v, id: q.id, score: n, total: total }; openPop('share', shareBtnQ); });
+    var again = mk('button', 'quiz-btn outline', 'Retake the quiz'); again.type = 'button';
+    again.addEventListener('click', function (e) { if (stray(q, e)) return; track('quiz_retake', { score: n, total: total }); q.i = 0; q.answers = []; q.done = false; renderQuestion(q, true); });
+    actions.appendChild(shareBtnQ); actions.appendChild(again); step.appendChild(actions);
+    var missed = q.qs.filter(function (item, k) { return q.answers[k] !== item.answer; });
+    if (missed.length) {
+      var rev = mk('div', 'quiz-review'); rev.appendChild(mk('p', 'quiz-review-title', 'Worth another read'));
+      var list = mk('ul', 'quiz-missed');
+      missed.forEach(function (item) {
+        var li = mk('li'); li.appendChild(mk('span', 'quiz-missed-q', item.question));
+        var a = readLink(null, 'Read: ', item); if (a) li.appendChild(a);
+        list.appendChild(li);
+      });
+      rev.appendChild(list); step.appendChild(rev);
+    }
+    q.card.appendChild(step);
+    track('quiz_complete', { score: n, total: total, percent: Math.round(share * 100) });
+    if (focus) { keepCardInView(q); score.focus({ preventScroll: true }); }
+  }
+  function setupQuiz(v) {
+    var root = panels[v].querySelector('.quiz'), qs = QUIZ && QUIZ[v];
+    if (!root || !qs || !qs.length) return;
+    var q = { v: v, id: root.id, qs: qs, root: root, card: root.querySelector('.quiz-card'), i: 0, answers: [], started: false, done: false, readyAt: 0 };
+    quizzes[v] = q;
+    root.querySelector('.quiz-lede').textContent = v === 'vet'
+      ? qs.length + ' questions on the clinical detail above. Each answer links back to the section it comes from.'
+      : qs.length + ' questions on this article. Pick an answer to see whether you are right and why. Your score comes at the end.';
+    root.hidden = false;
+    renderQuestion(q, false);
+  }
+  setupQuiz('owner'); setupQuiz('vet');
+
   /* ---------- Init: saved version, deep links ---------- */
   if (supported && typeof window.speechSynthesis.onvoiceschanged !== 'undefined') window.speechSynthesis.onvoiceschanged = loadVoices;
   function versionOfHash(h) { /* the version that owns the target, not a guess from the prefix */
@@ -1554,7 +1790,7 @@ var qrcode=function(){var t=function(t,r){var e=t,n=g[r],o=null,i=0,a=null,u=[],
   window.addEventListener('hashchange', function () {
     var h = location.hash.replace(/^#/, '');
     if (h === 'qr') { qrVersion = 'owner'; openPop('qr', qrBtn); return; }
-    if (h === 'share') { shareVersion = 'owner'; openPop('share', shareBtn); return; }
+    if (h === 'share') { shareVersion = 'owner'; shareMode = 'article'; openPop('share', shareBtn); return; }
     if (h === 'vet') { if (active !== 'vet') setVersion('vet'); return; }
     if (h && document.getElementById(h)) jumpTo(h); /* jumpTo switches to the version that owns the target */
   });
