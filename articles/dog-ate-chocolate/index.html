@@ -229,7 +229,8 @@
   .article a.cite:hover { text-decoration: underline; }
   #v-vet .article ol.refs { font-size: 14px; line-height: 1.6; }
   #v-vet .article ol.refs li { margin-bottom: 10px; scroll-margin-top: calc(var(--head-h) + var(--bar-h) + var(--player-h) + 24px + env(safe-area-inset-top, 0px)); overflow-wrap: anywhere; }
-  .article p, .article li, .article td { overflow-wrap: anywhere; }
+  .article p, .article li { overflow-wrap: anywhere; }
+  .article td { overflow-wrap: break-word; } /* whole words set a column's minimum width, so a narrow tier column never splits "emergency" mid-word; the .tablewrap scrolls on a phone */
   #v-vet .article ol.refs li:target { background: var(--reading); border-radius: 8px; box-shadow: 0 0 0 6px var(--reading); }
 
   /* Callout cards. The article HTML carries inline styles for Shopify; the page build strips them inside a card and assigns
@@ -394,7 +395,7 @@
   .site-foot a:hover { color: var(--brand); }
   @media (max-width: 767px) { .site-foot { margin-top: 44px; padding-block: 32px; } }
 </style>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "My dog ate chocolate: how much is dangerous and what to do", "description": "Work out in 2 minutes whether your dog needs a vet tonight, using the chocolate type and your dog's weight.", "url": "https://drduncanthevet.com/articles/dog-ate-chocolate/", "author": {"@type": "Person", "name": "Dr Duncan Houston", "jobTitle": "Emergency and critical care veterinarian", "url": "https://drduncanthevet.com/"}, "publisher": {"@type": "Person", "name": "Dr Duncan Houston", "url": "https://drduncanthevet.com/"}, "datePublished": "2026-09-29", "dateModified": "2026-09-30", "mainEntityOfPage": "https://drduncanthevet.com/articles/dog-ate-chocolate/", "inLanguage": "en", "articleSection": "Pet health and safety", "isAccessibleForFree": true}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "My dog ate chocolate: how much is dangerous and what to do", "description": "Work out in 2 minutes whether your dog needs a vet tonight, using the chocolate type and your dog's weight.", "url": "https://drduncanthevet.com/articles/dog-ate-chocolate/", "author": {"@type": "Person", "name": "Dr Duncan Houston", "jobTitle": "Emergency and critical care veterinarian", "url": "https://drduncanthevet.com/"}, "publisher": {"@type": "Person", "name": "Dr Duncan Houston", "url": "https://drduncanthevet.com/"}, "datePublished": "2026-09-29", "dateModified": "2026-10-01", "mainEntityOfPage": "https://drduncanthevet.com/articles/dog-ate-chocolate/", "inLanguage": "en", "articleSection": "Pet health and safety", "isAccessibleForFree": true}</script>
 </head>
 <body>
 
@@ -491,7 +492,8 @@
     </div>
     <div class="page"><div class="col">
     <article class="article" data-audio-src="" data-audio-duration="">
-<p>Your dog just ate chocolate and you need a number, not a lecture. I am an emergency and critical care vet who has worked in Sydney and Hong Kong. The danger comes down to 3 things: the type of chocolate, the grams eaten, and your dog's weight in kg. This article gives you the dose table, the timeline of signs and the exact steps for the next hour.</p>
+<p>Your dog just ate chocolate and you need a number, not a lecture. I am an emergency and critical care vet who has worked in Sydney and Hong Kong.</p>
+<p>The danger comes down to 3 things: the type of chocolate, the grams eaten, and your dog's weight in kg. Chocolate is high in fat and can sit in the stomach well past the first hour, which gives your vet time to remove it. This article gives you the dose table, the timeline of signs and the exact steps for the next hour.</p>
 <div class="aav-callout aav-callout-toc">
 <p class="aav-toc-title">In this article</p>
 <p class="aav-toc-cat">Act now</p>
@@ -507,7 +509,7 @@
 <p class="aav-toc-note">Use the toolbar above to switch to the veterinary version.</p>
 </div>
 <h2>Quick Answer</h2>
-<p>Call a vet now if your dog ate any dark or baking chocolate. Milk chocolate causes signs from about 9 g per kg of body weight. That is roughly 90 g for a 10 kg dog. Signs start 2 to 12 hours after eating. They can last over 24 hours. Do not make your dog vomit at home. Your vet does this safely.</p>
+<p><strong>Call a vet now if your dog ate any dark or baking chocolate</strong>. Milk chocolate causes signs from about 9 g per kg of body weight. That is roughly 90 g for a 10 kg dog. Signs start 2 to 12 hours after eating and can last over 24 hours. Do not make your dog vomit at home.</p>
 <h2>How urgent is this?</h2>
 <p>Match your dog to a row below. This uses a mg/kg dose (milligrams of the chemical per kilogram of your dog). The sum is explained further down, under the dosing heading.</p>
 <div class="tablewrap"><table>
@@ -515,25 +517,31 @@
 <tr>
 <th>Tier</th>
 <th>Signs and situations</th>
+<th>What it means</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Go to an emergency vet now</td>
 <td>Any dark or baking chocolate in a dog under 10 kg. A calculated dose above 40 mg/kg. <strong>Racing heart</strong>, <strong>muscle tremors</strong>, <strong>seizure</strong>, <strong>collapse</strong> or <strong>vomiting more than once</strong>. A puppy that ate an amount you cannot measure.</td>
+<td>A dose in the heart or seizure range, or poisoning already under way</td>
 </tr>
 <tr>
 <td>Call your regular vet within the hour</td>
 <td>Call promptly, ideally within the hour. Chocolate fat slows stomach emptying. Vomiting can still help after 1 hour. A calculated dose of 20 to 40 mg/kg. Milk chocolate in an amount you cannot measure. Mild <strong>restlessness</strong>, <strong>thirst</strong>, 1 vomit or <strong>diarrhea</strong>.</td>
+<td>Enough to cause vomiting, diarrhea and restlessness; removing the chocolate early can stop signs building</td>
 </tr>
 <tr>
 <td>Monitor at home</td>
 <td>White chocolate only. A calculated dose under 20 mg/kg, and your vet agrees. Watch for 24 hours.</td>
+<td>Below the dose that causes signs; fat and sugar can still upset the gut</td>
 </tr>
 </tbody>
 </table></div>
 <h2>Why is this happening?</h2>
-<p>Chocolate contains theobromine and caffeine, 2 stimulant chemicals grouped as methylxanthines (the stimulant chemicals in chocolate). Your dog absorbs theobromine slowly, with blood levels peaking about 10 hours after eating, and clears it slowly too. The half-life is 17.5 hours. Half-life is the time it takes half the dose to clear from the blood. This means half the dose is still in the blood 17.5 hours after eating. That slow clearance is why a dog can look fine at hour 4 and be trembling at hour 10.</p>
+<p>Chocolate contains theobromine and caffeine, 2 stimulant chemicals grouped as methylxanthines (the stimulant chemicals in chocolate). Your dog absorbs theobromine slowly, with blood levels peaking about 10 hours after eating, and clears it slowly too.</p>
+<p>The half-life is 17.5 hours. Half-life is the time it takes half the dose to clear from the blood. This means half the dose is still in the blood 17.5 hours after eating.</p>
+<p>That slow clearance is why a dog can look fine at hour 4 and be trembling at hour 10.</p>
 <p>The strength of the chocolate decides everything. The same 30 g square carries roughly 7 times more methylxanthine as baking chocolate than as milk chocolate. The wrapper matters as much as the amount.</p>
 <div class="tablewrap"><table>
 <thead>
@@ -571,9 +579,11 @@
 </tr>
 </tbody>
 </table></div>
-<p>Your vet also rules out the look-alikes hiding in the same snack. Sugar-free chocolate can contain xylitol, a sweetener that drops blood sugar in dogs and is a separate emergency; see <a href="https://askavet.com/blogs/news/xylitol-poisoning-in-dogs-2025-a-deadly-risk-hiding-in-gum-peanut-butter-toothpaste">Xylitol poisoning in dogs: signs and what to do</a>. Chocolate-covered raisins, chocolate with macadamia nuts, and foil wrappers swallowed whole each bring their own problem. Grapes and raisins can also damage the kidneys at unpredictable doses; see <a href="https://askavet.com/blogs/news/the-wrath-of-grapes-2025-why-raisins-grapes-are-fatal-to-dogs">Grapes and raisins poisoning in dogs</a>.</p>
+<p>Your vet also rules out the look-alikes hiding in the same snack. Sugar-free chocolate can contain xylitol, a sweetener that drops blood sugar in dogs and is a separate emergency; see <a href="https://askavet.com/blogs/news/xylitol-poisoning-in-dogs-2025-a-deadly-risk-hiding-in-gum-peanut-butter-toothpaste">Xylitol poisoning in dogs: signs and what to do</a>.</p>
+<p>Chocolate-covered raisins, chocolate with macadamia nuts, and foil wrappers swallowed whole each bring their own problem. Grapes and raisins can also damage the kidneys at unpredictable doses; see <a href="https://askavet.com/blogs/news/the-wrath-of-grapes-2025-why-raisins-grapes-are-fatal-to-dogs">Grapes and raisins poisoning in dogs</a>.</p>
 <h2>How much chocolate is dangerous for my dog?</h2>
-<p>Weigh your dog in kg and read the wrapper for the weight in g. Multiply the grams eaten by the mg/g figure for that chocolate. Divide the answer by your dog's weight in kg. The result is the dose in mg/kg, which is the number your vet needs. Example: an 18 kg dog eats 30 g of dark chocolate: 30 x 5.7 / 18 = 9.5 mg/kg.</p>
+<p>Weigh your dog in kg and read the wrapper for the weight in g. Multiply the grams eaten by the mg/g figure for that chocolate. Divide the answer by your dog's weight in kg.</p>
+<p>The result is the dose in mg/kg, which is the number your vet needs. Example: an 18 kg dog eats 30 g of dark chocolate: 30 x 5.7 / 18 = 9.5 mg/kg.</p>
 <!-- /aav-callout --><div class="aav-callout aav-callout-tool">
 <span class="aav-badge aav-badge-alert">Free tool: poisons and emergency</span>
 <p class="aav-title">Chocolate Toxicity Calculator</p>
@@ -641,7 +651,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>Double these amounts for the heart-sign dose of 40 mg/kg. Triple them for the seizure dose of 60 mg/kg. A 5 kg dog eating 20 g of baking chocolate reaches 64 mg/kg. A 30 kg dog eating the same 20 g reaches about 11 mg/kg. I recommend calling your vet at 20 mg/kg or higher. Round your estimate up, never down.</p>
+<p>Double these amounts for the heart-sign dose of 40 mg/kg. Triple them for the seizure dose of 60 mg/kg.</p>
+<p>A 5 kg dog eating 20 g of baking chocolate reaches 64 mg/kg. A 30 kg dog eating the same 20 g reaches about 11 mg/kg.</p>
+<p>I recommend calling your vet at 20 mg/kg or higher. Round your estimate up, never down.</p>
 <h2>Signs that mean emergency</h2>
 <p>Go to a vet now if you see any sign on this list.</p>
 <ul>
@@ -668,6 +680,7 @@
 <li>Go now if the dose is 20 mg/kg or higher.</li>
 <li>Go even if more than 1 hour has passed. Chocolate fat slows stomach emptying. The vet can often still remove it.</li>
 <li>Go now for any dark or baking chocolate in a dog under 10 kg.</li>
+<li>If your vet says to watch at home, watch for 24 hours.</li>
 <li>Do not make your dog vomit with hydrogen peroxide, salt, mustard or ipecac (vomiting syrup).</li>
 <li>Do not give activated charcoal (a poison-absorbing powder) bought from a pharmacy.</li>
 <li>Leave fresh water available on the way out.</li>
@@ -680,10 +693,14 @@
 <a class="aav-cta" href="https://askavet.com/pages/triage-tool-calculator">Check the symptoms</a>
 </div>
 <h2>What will the vet do?</h2>
-<p>The first job is the sum you just did, checked against the wrapper and the scale. Your vet then decides whether the chocolate is still in the stomach and worth removing. Chocolate is high in fat, so it often sits in the stomach well past the first hour. If it is still there, an injection makes your dog vomit under supervision. This is the safe version of the home remedy you skipped.</p>
-<p>Activated charcoal binds methylxanthines in the gut so less is absorbed. The dose, the IV fluids that go with it and the blood sodium checks afterwards stay with the vet. This is because charcoal pulls water into the gut. One dog given charcoal after eating chocolate brownies developed severe hypernatremia, a dangerous rise in blood sodium, and needed a ventilator before going home 57 hours later. This is why home dosing is off the table.</p>
+<p>The first job is the sum you just did, checked against the wrapper and the scale. Your vet then decides whether the chocolate is still in the stomach and worth removing.</p>
+<p>Chocolate is high in fat, so it often sits in the stomach well past the first hour. If it is still there, an injection makes your dog vomit under supervision. This is the safe version of the home remedy you skipped.</p>
+<p>Activated charcoal binds methylxanthines in the gut so less is absorbed. The dose, the IV fluids that go with it and the blood sodium checks afterwards stay with the vet. This is because charcoal pulls water into the gut.</p>
+<p>One dog given charcoal after eating chocolate brownies developed severe hypernatremia, a dangerous rise in blood sodium, and needed a ventilator before going home 57 hours later. This is why home dosing is off the table.</p>
 <p>For doses above 40 mg/kg, expect IV fluids and an ECG (a heart tracing test) to watch the heart rhythm. Your vet may also give anti-nausea drugs and drugs to slow the heart or stop tremors as needed. Because the half-life is 17.5 hours, a dog at the heart-sign dose stays in hospital for 24 hours or more.</p>
-<p>Recovery is the good news. Of 156 dogs that ate chocolate, 112 never developed signs. Of the 44 that did, the most common problems were agitation, tremors and vomiting, and 28 had a racing heart. With vomiting induced by injection, charcoal, IV fluids and heart-rate control, 43 of the 44 recovered. Most dogs given appropriate care do well, and the calculated dose plus the signs in front of the vet drive the plan. Even the 2.2 kg puppy at 176 mg/kg with fluid in the lungs went home by day 6. It recovered after oxygen, fluids and a diuretic (a drug that helps the body pass extra fluid).</p>
+<p>Recovery is the good news. Of 156 dogs that ate chocolate, 112 never developed signs. Of the 44 that did, the most common problems were agitation, tremors and vomiting, and 28 had a racing heart.</p>
+<p>With vomiting induced by injection, charcoal, IV fluids and heart-rate control, 43 of the 44 recovered. Most dogs given appropriate care do well, and the calculated dose plus the signs in front of the vet drive the plan.</p>
+<p>Even the 2.2 kg puppy at 176 mg/kg with fluid in the lungs went home by day 6. It recovered after oxygen, fluids and a diuretic (a drug that helps the body pass extra fluid).</p>
 <h2>Common mistakes owners make</h2>
 <ol>
 <li>Waiting to see if signs appear. Signs can take 6 to 12 hours to show. By then, the chocolate has left the stomach and vomiting no longer helps.</li>
@@ -694,7 +711,8 @@
 <li>Guessing low on the amount. Owners find the empty box after the vet visit, not before; round up and let the vet round down.</li>
 </ol>
 <h2>How to prevent it</h2>
-<p>Dogs reach the chocolate you thought was out of reach: a coffee table, an open handbag, a gift bag under a tree. Store chocolate above counter height in a closed cupboard. Treat baking chocolate and cocoa powder like medicine, because 6 g of baking chocolate brings a 5 kg dog to the 20 mg/kg line. Christmas and Easter bring chocolate down to floor level: in UK dogs, chocolate poisoning was almost 5 times more likely at Christmas and twice as likely at Easter, and dogs under 4 years were the most exposed. Check under the couch and inside kids' bags after each holiday.</p>
+<p>Dogs reach the chocolate you thought was out of reach: a coffee table, an open handbag, a gift bag under a tree. Store chocolate above counter height in a closed cupboard. Treat baking chocolate and cocoa powder like medicine, because 6 g of baking chocolate brings a 5 kg dog to the 20 mg/kg line.</p>
+<p>Christmas and Easter bring chocolate down to floor level: in UK dogs, chocolate poisoning was almost 5 times more likely at Christmas and twice as likely at Easter, and dogs under 4 years were the most exposed. Check under the couch and inside kids' bags after each holiday.</p>
 <p>A solid "leave it" cue buys you the 2 seconds needed to take a bar back.</p>
 <p>A bored dog goes looking, and the coffee table is where the looking ends. Ten minutes of nose work at floor level spends that energy on something that is not your handbag. Scatter the dog's own dinner through a snuffle mat to set this up.</p>
 <!-- /aav-callout --><div class="aav-callout aav-callout-product">
@@ -705,15 +723,18 @@
 </div>
 <h2>FAQs</h2>
 <h3>How much chocolate will kill a dog?</h3>
-<p>There is no single fatal number, because the risk depends on chocolate type, grams eaten and your dog's weight. Seizures start at 60 mg/kg and above, and I treat that dose as life-threatening. Of 44 dogs that developed signs after chocolate, 43 survived with treatment. A 2.2 kg puppy at 176 mg/kg survived with intensive care. A dog who reaches the vet early has good odds.</p>
+<p>There is no single fatal number, because the risk depends on chocolate type, grams eaten and your dog's weight. Seizures start at 60 mg/kg and above, and I treat that dose as life-threatening.</p>
+<p>Of 44 dogs that developed signs after chocolate, 43 survived with treatment. A 2.2 kg puppy at 176 mg/kg survived with intensive care. A dog who reaches the vet early has good odds.</p>
 <h3>How long after eating chocolate do symptoms start in dogs?</h3>
 <p>Signs start 2 to 12 hours after eating, and theobromine peaks in the blood at about 10 hours. A 2.2 kg puppy that ate a 200 g chocolate cake had breathing trouble within 4 hours, then a fast heart, fast breathing and fluid in the lungs. Because theobromine has a 17.5 hour half-life, a dog who looks normal at hour 4 has not passed the danger window, and I recommend watching for a full 24 hours.</p>
 <h3>Is white chocolate dangerous to dogs?</h3>
-<p>White chocolate carries almost no methylxanthines, so it does not cause chocolate poisoning at normal amounts. The fat and sugar can still cause vomiting or diarrhea. A large fatty meal can also trigger pancreatitis (an inflamed pancreas) in some dogs. Call your vet if vomiting continues past 2 episodes or your dog stops eating; see <a href="https://askavet.com/blogs/news/when-to-worry-about-vomiting-in-dogs-and-cats">Why is my dog vomiting and when to worry</a>.</p>
+<p>White chocolate carries almost no methylxanthines, so it does not cause chocolate poisoning at normal amounts. The fat and sugar can still cause vomiting or diarrhea.</p>
+<p>A large fatty meal can also trigger pancreatitis (an inflamed pancreas) in some dogs. Call your vet if vomiting continues past 2 episodes or your dog stops eating; see <a href="https://askavet.com/blogs/news/when-to-worry-about-vomiting-in-dogs-and-cats">Why is my dog vomiting and when to worry</a>.</p>
 <h3>Can a small amount of chocolate hurt a small dog?</h3>
-<p>Yes, because the dose is per kg. A 5 kg dog reaches 20 mg/kg from 43 g of milk chocolate or 6 g of baking chocolate. A 30 kg dog would shrug off these same amounts. The 2.2 kg puppy reached 176 mg/kg from a homemade chocolate cake.</p>
+<p>Yes, because the dose is per kg. A 5 kg dog reaches 20 mg/kg from 43 g of milk chocolate or 6 g of baking chocolate.</p>
+<p>A 30 kg dog would shrug off these same amounts. The 2.2 kg puppy reached 176 mg/kg from a homemade chocolate cake.</p>
 <h3>Can cats get chocolate poisoning?</h3>
-<p>Cats rarely eat chocolate, so this is a dog problem in practice. The same methylxanthines are poisonous to cats, so if your cat does eat chocolate, do the same sum and call your vet.</p>
+<p>Yes, because the same methylxanthines are poisonous to cats. Cats rarely eat chocolate, so this is a dog problem in practice. If your cat does eat chocolate, do the same sum and call your vet.</p>
 <h2>Closing</h2>
 <p>Do the sum now and call before hour 6, not after. My opinion is that the owners who call at 20 mg/kg and hear "come in for a quick check" have a better night than the ones who call at hour 10 with a dog who cannot stop shaking.</p>
 <hr />

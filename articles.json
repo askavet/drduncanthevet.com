@@ -1,6 +1,6 @@
 {
   "site": "https://drduncanthevet.com",
-  "built": "2026-09-30",
+  "built": "2026-10-02",
   "articles": [
     {
       "slug": "dog-ate-chocolate",
@@ -11,8 +11,8 @@
       "vet_title": "Chocolate (methylxanthine) toxicosis in dogs: dose thresholds, decontamination and treatment",
       "category": "Pet health and safety",
       "published": "2026-09-29",
-      "updated": "2026-09-30",
-      "read_min": 11,
+      "updated": "2026-10-01",
+      "read_min": 12,
       "sections": 12,
       "pdf_owner": "dog-ate-chocolate-owner.pdf",
       "pdf_vet": "dog-ate-chocolate-vet.pdf",
