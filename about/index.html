@@ -6,6 +6,7 @@
 <title>Dr Duncan Houston | Emergency and critical care veterinarian</title>
 <meta name="description" content="Emergency and critical care veterinarian. Founder of ASK A VET™, WOOPF™ and PURRZ™.">
 <link rel="canonical" href="https://drduncanthevet.com/about/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Dr Duncan the Vet"><meta property="og:title" content="Dr Duncan Houston | Emergency and critical care veterinarian"><meta property="og:description" content="Emergency and critical care veterinarian. Founder of ASK A VET™, WOOPF™ and PURRZ™."><meta property="og:url" content="https://drduncanthevet.com/about/"><meta property="og:image" content="https://drduncanthevet.com/about/img/share.jpg"><meta property="og:image:type" content="image/jpeg"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="Dr Duncan Houston with Bridie, Kiko and Gary"><meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#ffffff">
 <link rel="preload" as="image" href="img/duncan-and-animals@2x.webp">
 <script>document.documentElement.className = 'js';</script>
@@ -67,6 +68,19 @@ h1,h2,h3,h4,.eyebrow,.tagline,.why-line,.why-close,.gv,.what,.fits-text,.sec-h,.
 .topnav .btn{font-size:14.5px;padding:11px 22px}
 @media (max-width:860px){.topnav .links{display:none}}
 @media (max-width:720px){.topnav .me{font-size:16px}.topnav .btn{font-size:13px;padding:9px 16px}.brandbar a{padding:0 12px}}
+/* phone menu (DH5 A): a small button beside the name opens the hidden links */
+.menu-t{display:none}
+@media (max-width:860px){
+  .topnav{position:relative}
+  .js .menu-t{display:grid;place-items:center;flex:none;width:30px;height:30px;margin:0 auto 0 -12px;padding:0;border:0;border-radius:999px;background:var(--lilac);color:var(--ink);cursor:pointer;transition:background-color .2s}
+  .js .menu-t:hover{background:var(--lilac-chip)}
+  .menu-t svg{width:14px;height:14px;transition:transform .25s var(--ease-io)}
+  .menu-open .menu-t svg{transform:rotate(180deg)}
+  .menu-open .topnav .links{display:flex;flex-direction:column;gap:2px;position:absolute;left:0;right:0;top:100%;padding:8px 14px 14px;background:#fff;border-bottom:1px solid var(--lilac-border-soft);box-shadow:0 18px 32px rgba(21,15,29,.08)}
+  .menu-open .topnav .links a{font-size:16px;padding:13px 14px;border-radius:14px}
+}
+@media (max-width:420px){.topnav{gap:12px;padding:0 14px}.topnav .me{font-size:15px}.js .menu-t{width:28px;height:28px;margin-left:-6px}.topnav .btn{padding:9px 13px}}
+@media (max-width:350px){.topnav .me{white-space:normal;line-height:1.15;font-size:14px}}
 
 /* shared stage */
 .stage{position:relative}
@@ -280,11 +294,23 @@ footer{background:var(--night);color:#fff;font-family:var(--font-display);paddin
     <a class="b-purrz" href="https://purrz.com" target="_blank" rel="noopener"><img src="img/brand/askavet-purrz-white.svg" alt="PURRZ™"></a>
   </nav>
   <nav class="topnav" aria-label="Dr Duncan Houston">
-    <a class="me" href="#top">Dr Duncan Houston</a>
-    <div class="links"><a href="/">Articles</a><a href="#work">My working life</a><a href="#companies">My companies</a></div>
+    <a class="me" href="#top">Dr Duncan Houston</a><button class="menu-t" type="button" aria-expanded="false" aria-controls="toplinks" aria-label="Menu"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 6l4.5 4.5L12.5 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    <div class="links" id="toplinks"><a href="/">Articles</a><a href="#work">My working life</a><a href="#companies">My companies</a></div>
     <a class="btn primary" href="#connect">Connect with me</a>
   </nav>
 </div>
+<script>
+(function(){
+  var c=document.querySelector('.chrome'), b=document.querySelector('.menu-t');
+  if(!c||!b) return;
+  function set(o){ c.classList.toggle('menu-open',o); b.setAttribute('aria-expanded',o?'true':'false'); }
+  b.addEventListener('click',function(e){ e.stopPropagation(); set(!c.classList.contains('menu-open')); });
+  Array.prototype.forEach.call(c.querySelectorAll('.topnav a'),function(a){ a.addEventListener('click',function(){ set(false); }); });
+  document.addEventListener('click',function(e){ if(!c.contains(e.target)) set(false); });
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&c.classList.contains('menu-open')){ set(false); b.focus(); } });
+  window.addEventListener('resize',function(){ if(window.innerWidth>860) set(false); });
+})();
+</script>
 
 <main>
 <section id="top" class="stage hero" data-stage="hero">

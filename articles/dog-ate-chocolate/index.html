@@ -388,7 +388,10 @@
 </style><style>
   .wordmark { text-decoration: none; }
   .site-nav a { text-decoration: none; }
-  @media (max-width: 1023px) { .site-nav { display: flex; } .site-nav a:not(:first-child) { display: none; } }
+  @media (max-width: 1023px) { .site-nav { display: flex; } .site-nav a:not(:first-child):not([href="/about/"]) { display: none; } .site-nav span { white-space: nowrap; } }
+  /* phones: Articles and About me both show (DH5 A) */
+  @media (max-width: 440px) { .site-head .inner { gap: 10px; } .wordmark { font-size: 13px; gap: 8px; white-space: nowrap; } .site-nav { gap: 4px; } .site-nav span { padding: 6px 9px; font-size: 12px; } }
+  @media (max-width: 350px) { .wordmark { white-space: normal; line-height: 1.15; } }
   .site-foot { border-top: 1px solid var(--lilac-line); margin-top: 72px; padding-block: 40px; font-size: 14px; color: var(--body); }
   .site-foot .row { display: flex; flex-wrap: wrap; gap: 10px 22px; align-items: center; justify-content: space-between; }
   .site-foot a { color: var(--brand-deep); text-decoration: none; font-weight: 600; }

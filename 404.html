@@ -33,7 +33,10 @@
   .site-nav span { display: inline-block; font-size: 12.5px; font-weight: 600; color: var(--ink); padding: 7px 14px; border-radius: 999px; background: var(--lilac); transition: background 200ms var(--ease), color 200ms var(--ease); }
   .site-nav a:hover span { background: var(--brand); color: var(--on-brand); }
   .site-nav span.on { background: var(--brand); color: var(--on-brand); }
-  @media (max-width: 1023px) { .site-nav a:not(:first-child) { display: none; } }
+  @media (max-width: 1023px) { .site-nav a:not(:first-child):not([href="/about/"]) { display: none; } .site-nav span { white-space: nowrap; } }
+  /* phones: Articles and About me both show (DH5 A) */
+  @media (max-width: 440px) { .site-head .inner { gap: 10px; } .wordmark { font-size: 13px; gap: 8px; white-space: nowrap; } .site-nav { gap: 4px; } .site-nav span { padding: 6px 9px; font-size: 12px; } }
+  @media (max-width: 350px) { .wordmark { white-space: normal; line-height: 1.15; } }
   .hero { background: var(--lilac-ghost); background-image: radial-gradient(60% 80% at 12% 0%, var(--lilac) 0%, transparent 60%), radial-gradient(40% 60% at 92% 100%, var(--cream) 0%, transparent 60%); padding-block: 72px 76px; text-align: center; }
   .hero-in { max-width: 760px; margin-inline: auto; }
   .eyebrow { font-size: 15px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; margin: 0 0 14px; background: var(--gradient-brand-text); -webkit-background-clip: text; background-clip: text; color: transparent; -webkit-text-fill-color: transparent; }
