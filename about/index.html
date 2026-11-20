@@ -1,0 +1,690 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dr Duncan Houston | Emergency and critical care veterinarian</title>
+<meta name="description" content="Emergency and critical care veterinarian. Founder of ASK A VET™, WOOPF™ and PURRZ™.">
+<link rel="canonical" href="https://drduncanthevet.com/about/">
+<meta name="theme-color" content="#ffffff">
+<link rel="preload" as="image" href="img/duncan-and-animals@2x.webp">
+<script>document.documentElement.className = 'js';</script>
+<style>
+/* v2: colours, fonts and components taken from askavet.com's live design tokens (read 19 Nov 2026) */
+@font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/poppins-400-latin.woff2) format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/poppins-500-latin.woff2) format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/poppins-600-latin.woff2) format("woff2")}
+@font-face{font-family:"Poppins";font-style:normal;font-weight:700;font-display:swap;src:url(fonts/poppins-700-latin.woff2) format("woff2")}
+@font-face{font-family:"IBM Plex Sans";font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/ibm-plex-sans-latin-var.woff2) format("woff2")}
+:root{
+  --ground:#f4f7fa; --card:#fff; --ink:#150f1d; --body:#58596a; --soft:#736f78; --mist:#9a95a1;
+  --brand:#8e45b8; --brand-deep:#6f2c95; --brand-soft:#a55fd0; --cyan-deep:#0b74a8;
+  --lilac:#f3e9fa; --lilac-line:#eadff3; --lilac-border-soft:#f2edf8; --lilac-wash:#f8f3fc; --lilac-chip:#f0e3f9;
+  --lilac-pill-line:#e2d3ee; --lilac-hairline:#eee9f3; --lilac-hover:#f6effc;
+  --butter:#ffe589; --night:#150f1d; --night-ann:#211b28; --plum:#2b2438; --plum-text:#c9c2d6; --foot-label:#9a93a5; --ann-link:#d3b1e6;
+  --gradient-brand:linear-gradient(120deg,#8e45b8 35%,#0b74a8 140%);
+  --gradient-brand-pill:linear-gradient(120deg,#8e45b8 30%,#0b74a8 130%);
+  --gradient-brand-text:linear-gradient(100deg,#8e45b8 20%,#0b74a8 120%);
+  --gradient-brand-text-night:linear-gradient(100deg,#a55fd0 10%,#01cdfe 110%);
+  --radius-card:22px; --radius-pill:26px;
+  --shadow-card:0 6px 22px rgba(21,15,29,.05); --shadow-card-hover:0 18px 40px rgba(142,69,184,.12); --shadow-lift:0 24px 54px rgba(21,15,29,.14);
+  --font-display:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --font-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --ease-io:cubic-bezier(.4,0,.2,1);
+  --bar:36px; --nav:64px;
+}
+@media (max-width:720px){:root{--nav:56px}}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;overflow-x:clip}
+body{font-family:var(--font-body);background:var(--ground);color:var(--ink);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+a{color:inherit}
+img{display:block}
+h1,h2,h3,h4,.eyebrow,.tagline,.why-line,.why-close,.gv,.what,.fits-text,.sec-h,.cv-sub{font-family:var(--font-display)}
+.gt{background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lbl{font-family:var(--font-display);font-size:13px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase}
+.lbl.gt{display:inline-block}
+
+/* site chrome: brand bar + header, as on askavet.com */
+.chrome{position:fixed;inset:0 0 auto 0;z-index:60;transition:transform .35s var(--ease-io)}
+.scrolled .chrome{transform:translateY(calc(-1 * var(--bar)))}
+.brandbar{height:var(--bar);background:var(--night-ann);display:flex;align-items:stretch;padding:0 max(8px,calc(50vw - 672px))}
+.brandbar a{display:flex;align-items:center;padding:0 16px;opacity:.82;transition:opacity .2s,background-color .2s}
+.brandbar a:hover{opacity:1;background:rgba(255,255,255,.07)}
+.brandbar img{width:auto;height:18px}
+.brandbar .b-aav img{height:19px}.brandbar .b-purrz img{height:22px}
+.topnav{height:var(--nav);display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:0 max(20px,calc(50vw - 636px));background:#fff;border-bottom:1px solid var(--lilac-border-soft);box-shadow:0 8px 28px rgba(21,15,29,.05);
+  font-family:var(--font-display)}
+.topnav a{text-decoration:none;color:var(--ink)}
+.topnav .me{font-weight:700;font-size:19px;letter-spacing:-.3px;white-space:nowrap}
+.topnav .links{display:flex;gap:4px}
+.topnav .links a{font-size:14.5px;font-weight:500;padding:9px 15px;border-radius:999px;transition:background-color .2s}
+.topnav .links a:hover{background:var(--lilac-hover)}
+.btn{display:inline-flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:600;text-decoration:none;white-space:nowrap;
+  border-radius:var(--radius-pill);transition:transform .2s var(--ease-io),box-shadow .2s var(--ease-io)}
+.btn.primary{background:var(--gradient-brand);color:#fff!important;box-shadow:0 10px 24px rgba(142,69,184,.22)}
+.btn.primary:hover{transform:translateY(-1px);box-shadow:0 14px 30px rgba(142,69,184,.3)}
+.topnav .btn{font-size:14.5px;padding:11px 22px}
+@media (max-width:860px){.topnav .links{display:none}}
+@media (max-width:720px){.topnav .me{font-size:16px}.topnav .btn{font-size:13px;padding:9px 16px}.brandbar a{padding:0 12px}}
+
+/* shared stage */
+.stage{position:relative}
+.sticky{position:relative}
+.js .stage > .sticky{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden}
+.fig{width:min(86vw,560px);height:auto;margin:0 auto;user-select:none;-webkit-user-drag:none;pointer-events:none;
+  filter:drop-shadow(0 30px 34px rgba(21,15,29,.12))}
+.js .stage .fig{position:absolute;left:0;top:0;margin:0;transform-origin:50% 50%;will-change:transform;z-index:2}
+.ow{display:none}
+.js .ow{display:block;position:absolute;left:0;top:0;white-space:nowrap;font-family:var(--font-display);font-weight:600;font-size:clamp(13px,1.3vw,18px);
+  letter-spacing:-.01em;padding:.55em 1.1em;border-radius:999px;background:#fff;color:var(--ink);border:1px solid var(--lilac-border-soft);
+  box-shadow:0 10px 28px rgba(21,15,29,.08);will-change:transform,opacity;opacity:0;z-index:1}
+.ow.kv i{font-style:normal;color:var(--soft);font-weight:500;margin-right:.3em}
+.ow.brand{background:var(--gradient-brand-pill);color:#fff;border-color:transparent;letter-spacing:.02em;box-shadow:0 12px 28px rgba(142,69,184,.28)}
+@media (max-width:720px){.js .ow{font-size:11.5px;padding:.45em .85em}.js .ow.dm{display:none}.brands .ow{font-size:10.5px}}
+
+/* hero */
+.hero .sticky{background:radial-gradient(120% 80% at 50% 62%,#fff 0%,var(--lilac-wash) 52%,var(--ground) 100%)}
+.hero-title{text-align:center;padding:calc(var(--bar) + var(--nav) + 5vh) 20px 2vh}
+.js .hero-title{position:absolute;left:0;right:0;top:0;z-index:4;will-change:transform,opacity}
+.eyebrow{font-size:clamp(20px,2.2vw,30px);font-weight:600;color:var(--ink);letter-spacing:-.4px}
+h1{font-size:clamp(44px,8vw,120px);font-weight:600;letter-spacing:-.035em;line-height:1.07;margin-top:.04em;padding-bottom:.06em}
+.hero-end{text-align:center;padding:3vh 20px 6vh}
+.js .hero-end{position:absolute;left:0;right:0;bottom:calc(3.5vh + env(safe-area-inset-bottom));z-index:5;opacity:0;padding:0 20px}
+.tagline{font-size:clamp(28px,3.6vw,52px);font-weight:600;letter-spacing:-.03em;line-height:1.1}
+.lede{font-size:clamp(16px,1.4vw,20px);color:var(--body);margin:12px auto 0;max-width:760px;line-height:1.5}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:16px auto 0;list-style:none;max-width:880px}
+.chips li{font-family:var(--font-display);font-size:13px;font-weight:600;color:var(--brand-deep);padding:6px 13px;border-radius:999px;background:var(--lilac-chip);border:1px solid var(--lilac-pill-line)}
+.follow{margin-top:14px;font-size:15px;color:var(--body)}
+.follow a{color:var(--brand);text-decoration:none;font-family:var(--font-display);font-weight:600}
+.follow a:hover{color:var(--brand-deep);text-decoration:underline}
+.hint{display:none}
+.js .hint{display:flex;flex-direction:column;align-items:center;gap:6px;position:absolute;left:50%;bottom:1.6vh;transform:translateX(-50%);
+  font-family:var(--font-display);font-size:11px;font-weight:700;color:var(--soft);letter-spacing:1.1px;text-transform:uppercase;z-index:5}
+.hint:after{content:"";width:9px;height:9px;border-right:2px solid var(--brand);border-bottom:2px solid var(--brand);transform:rotate(45deg);animation:nudge 1.6s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateY(0) rotate(45deg);opacity:.5}50%{transform:translateY(5px) rotate(45deg);opacity:1}}
+@media (max-width:720px){.chips li{font-size:11.5px;padding:5px 10px}.chips{gap:6px;margin-top:12px}.follow{font-size:14px;margin-top:10px}.lede{line-height:1.45}}
+
+/* why */
+.why{background:var(--night);color:#fff}
+.why .sticky{display:flex;align-items:center;justify-content:center;background:radial-gradient(90% 70% at 50% 50%,#211b28 0%,var(--night) 70%)}
+.why-inner{max-width:1000px;padding:calc(var(--nav) + 4vh) 24px 6vh}
+.why-label{margin-bottom:24px}
+.why-label span{background:var(--gradient-brand-text-night);-webkit-background-clip:text;background-clip:text;color:transparent}
+.why-line,.why-close{font-size:clamp(27px,3.3vw,48px);font-weight:600;letter-spacing:-.03em;line-height:1.15;margin-bottom:.5em}
+.why-close{margin-top:.6em}
+.js .why .w{color:#3b3346;transition:color .35s ease}
+.js .why .w.on{color:#fff}
+.js .why .why-close .w.on{color:var(--ann-link)}
+
+/* glance */
+.glance{padding:16vh 24px 8vh;max-width:1180px;margin:0 auto}
+.glance h2,.cv-sub,.sec-h{font-size:clamp(34px,4.6vw,64px);font-weight:600;letter-spacing:-.03em;line-height:1.08;text-align:center;margin-bottom:7vh;text-wrap:balance}
+.ggrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.g{display:flex;flex-direction:column;gap:10px;background:var(--card);border:1px solid var(--lilac-border-soft);border-radius:var(--radius-card);
+  padding:22px 22px 24px;box-shadow:var(--shadow-card)}
+.gk{font-family:var(--font-display);font-size:12px;font-weight:700;letter-spacing:1.1px;text-transform:uppercase;color:var(--soft)}
+.gv{font-size:clamp(19px,1.75vw,25px);font-weight:600;letter-spacing:-.02em;line-height:1.2}
+@media (max-width:900px){.ggrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:480px){.ggrid{grid-template-columns:minmax(0,1fr);gap:12px}}
+
+/* bio */
+.bio{padding:6vh 24px 16vh}
+.bio-inner{max-width:820px;margin:0 auto}
+.bio p{font-size:clamp(18px,1.8vw,24px);line-height:1.55;color:var(--body);margin-bottom:1.1em}
+.bio p:first-child{color:var(--ink);font-family:var(--font-display);font-weight:500;letter-spacing:-.01em;line-height:1.45}
+
+/* timeline */
+.tl .sticky{background:radial-gradient(100% 75% at 50% 55%,#fff 0%,var(--lilac) 100%)}
+.tl-head{text-align:center;padding:calc(var(--nav) + 4vh) 20px 0}
+.js .tl-head{position:absolute;left:0;right:0;top:0;z-index:6}
+.tl-head h2{font-size:clamp(30px,4vw,56px);font-weight:600;letter-spacing:-.03em}
+.years{display:none}
+.js .years{display:block;position:absolute;inset:0;z-index:1;pointer-events:none}
+.yr{position:absolute;left:0;right:0;top:0;text-align:center;font-family:var(--font-display);font-weight:700;letter-spacing:-.05em;line-height:1;
+  font-size:clamp(120px,24vw,380px);color:rgba(142,69,184,.09);opacity:0;will-change:transform,opacity;font-variant-numeric:tabular-nums}
+.tl-cards{display:none}
+.js .tl-cards{display:block}
+.tc{position:absolute;left:0;top:0;width:var(--cw,300px);background:var(--card);border:1px solid var(--lilac-border-soft);border-radius:var(--radius-card);
+  padding:18px 20px 20px;opacity:0;z-index:3;box-shadow:var(--shadow-card-hover);will-change:transform,opacity;display:flex;flex-direction:column;gap:6px}
+.tcb{font-family:var(--font-display);font-size:11.5px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--soft)}
+.tcw{font-family:var(--font-display);font-size:15.5px;font-weight:700;letter-spacing:-.01em;align-self:flex-start;
+  background:var(--gradient-brand-text);-webkit-background-clip:text;background-clip:text;color:transparent}
+.tct{font-size:16px;line-height:1.45;color:var(--ink)}
+.rail{display:none}
+.js .rail{display:flex;flex-direction:column;gap:9px;position:absolute;right:22px;top:50%;transform:translateY(-50%);list-style:none;z-index:6}
+.rail li{display:flex;align-items:center;justify-content:flex-end;gap:8px;font-family:var(--font-display);font-size:11px;font-weight:600;color:var(--mist);transition:color .25s}
+.rail li:after{content:"";width:6px;height:6px;border-radius:50%;background:var(--lilac-pill-line);transition:all .25s}
+.rail li.on{color:var(--ink)}
+.rail li.on:after{background:var(--gradient-brand);transform:scale(1.6)}
+@media (max-width:899px){.js .rail{display:none}.tct{font-size:15px}.tc{padding:14px 16px 16px;border-radius:18px}}
+
+/* cv list */
+.cv{padding:14vh 24px 12vh;max-width:1180px;margin:0 auto}
+.cvgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;align-items:start}
+.cvb{background:var(--card);border:1px solid var(--lilac-border-soft);border-radius:var(--radius-card);padding:24px 24px 14px;box-shadow:var(--shadow-card)}
+.cvb h3{font-size:20px;font-weight:600;letter-spacing:-.02em;padding-bottom:12px;border-bottom:1px solid var(--lilac-line);margin-bottom:4px}
+.cvb ul{list-style:none}
+.cvb li{display:grid;grid-template-columns:112px minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--lilac-hairline);font-size:15px;line-height:1.45;color:var(--body)}
+.cvb li:last-child{border-bottom:0}
+.cvb .when{font-family:var(--font-display);font-weight:600;font-size:13.5px;color:var(--brand)}
+@media (max-width:1000px){.cvgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.cvgrid{grid-template-columns:minmax(0,1fr)}.cvb li{grid-template-columns:92px minmax(0,1fr)}}
+
+/* brands stage */
+.brands .sticky{background:radial-gradient(110% 80% at 50% 58%,var(--plum) 0%,var(--night) 62%,#0f0b15 100%);color:#fff}
+.brands-head{text-align:center;padding:calc(var(--nav) + 5vh) 20px 0}
+.js .brands-head{position:absolute;left:0;right:0;top:0;z-index:6}
+.brands .sec-h{margin:0;color:#fff}
+.brands .sec-h .gt{background:var(--gradient-brand-text-night);-webkit-background-clip:text;background-clip:text}
+.brands-end{text-align:center;padding:2vh 20px 8vh;color:var(--plum-text);font-size:clamp(17px,1.6vw,22px);line-height:1.5}
+.js .brands-end{position:absolute;left:0;right:0;bottom:6vh;z-index:6;opacity:0}
+.brands-end p{max-width:760px;margin:0 auto}
+.brands .ow{background:var(--plum);color:#fff;border-color:rgba(255,255,255,.08);box-shadow:0 10px 28px rgba(0,0,0,.4)}
+.brands .ow.live{background:var(--gradient-brand-pill);border-color:transparent;box-shadow:0 12px 30px rgba(142,69,184,.45)}
+.brands .fig{filter:drop-shadow(0 30px 40px rgba(0,0,0,.55))}
+
+/* companies */
+.cos{padding:12vh 24px 8vh;max-width:1180px;margin:0 auto}
+.fam{margin-bottom:10vh}
+.famh{display:flex;align-items:baseline;justify-content:space-between;gap:10px 16px;flex-wrap:wrap;border-bottom:1px solid var(--lilac-line);padding-bottom:14px;margin-bottom:22px}
+.famh h3{font-size:clamp(24px,2.6vw,34px);font-weight:600;letter-spacing:-.03em}
+.cogrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.co{background:var(--card);border-radius:var(--radius-card);padding:24px 24px 26px;border:1px solid var(--lilac-border-soft);box-shadow:var(--shadow-card);
+  display:flex;flex-direction:column;gap:8px;transition:transform .25s var(--ease-io),box-shadow .25s var(--ease-io)}
+.co:hover{transform:translateY(-2px);box-shadow:var(--shadow-card-hover)}
+.co header{display:flex;align-items:center;justify-content:space-between;gap:6px 10px;flex-wrap:wrap}
+.co h4{font-size:clamp(19px,1.7vw,23px);font-weight:700;letter-spacing:-.02em;min-width:0;white-space:nowrap}
+.co .st{font-family:var(--font-display);font-size:10.5px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;color:var(--ink);
+  background:var(--butter);border-radius:999px;padding:5px 11px;white-space:nowrap}
+.co.live .st{background:var(--gradient-brand-pill);color:#fff}
+.co .dom{font-family:var(--font-display);font-size:14px;color:var(--soft);font-weight:500}
+.co.live .dom a{color:var(--brand);text-decoration:none;font-weight:600}
+.co.live .dom a:after{content:" \2192"}
+.co.live .dom a:hover{color:var(--brand-deep);text-decoration:underline}
+.co .what{font-size:17px;font-weight:600;line-height:1.35;letter-spacing:-.01em;color:var(--ink)}
+.co .cwhy{font-size:15px;line-height:1.55;color:var(--body)}
+.co .cwhy b{color:var(--ink);font-family:var(--font-display);font-weight:600}
+.co.live{border-color:var(--lilac-line);background:linear-gradient(180deg,#fff 0%,#fff 55%,var(--lilac-wash) 100%)}
+@media (max-width:1000px){.cogrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.cogrid{grid-template-columns:minmax(0,1fr)}.co h4{font-size:20px}}
+
+/* fits */
+.fits{padding:10vh 24px 14vh;text-align:center;overflow:hidden}
+.fits-orbit{position:relative;width:min(92vw,620px);height:min(92vw,620px);margin:0 auto 6vh}
+.fits-orbit:before{content:"";position:absolute;inset:9%;border-radius:50%;border:1px dashed var(--lilac-pill-line)}
+.fits-center{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--gradient-brand-pill);color:#fff;font-family:var(--font-display);font-weight:700;
+  font-size:clamp(18px,2vw,26px);letter-spacing:.02em;padding:.7em 1.3em;border-radius:999px;box-shadow:0 18px 40px rgba(142,69,184,.35);z-index:2;white-space:nowrap}
+.fw{position:absolute;left:50%;top:50%;font-family:var(--font-display);font-weight:600;font-size:clamp(11px,1.15vw,15px);letter-spacing:.03em;padding:.5em .95em;border-radius:999px;
+  background:#fff;border:1px solid var(--lilac-line);box-shadow:var(--shadow-card);white-space:nowrap;will-change:transform}
+.fits-label{margin-bottom:12px}
+@media (max-width:720px){.fits-orbit{height:min(132vw,560px)}.fw{font-size:10.5px;padding:.45em .8em}}
+.fits-text{font-size:clamp(24px,3.2vw,44px);font-weight:600;letter-spacing:-.03em;line-height:1.15;max-width:980px;margin:0 auto}
+
+/* connect */
+.connect{padding:12vh 24px 12vh}
+.connect .wrap{max-width:1040px;margin:0 auto;background:var(--card);border:1px solid var(--lilac-border-soft);border-radius:28px;box-shadow:var(--shadow-card);
+  padding:9vh clamp(20px,4vw,56px) 6vh}
+.connect .sub{font-size:clamp(17px,1.6vw,21px);color:var(--body);text-align:center;margin:-4vh auto 6vh;max-width:640px;line-height:1.5}
+.cr{display:grid;grid-template-columns:230px minmax(0,1fr);gap:20px;align-items:center;padding:20px 0;border-top:1px solid var(--lilac-hairline)}
+.cr h4{font-size:18px;font-weight:600;letter-spacing:-.02em}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pill{font-family:var(--font-display);font-size:14px;font-weight:600;text-decoration:none;padding:10px 17px;border-radius:var(--radius-pill);background:#fff;
+  border:1px solid var(--lilac-line);color:var(--ink);transition:all .2s}
+.pill:hover{border-color:var(--brand);color:var(--brand);background:var(--lilac-hover)}
+.cr:first-of-type .pill{background:var(--gradient-brand-pill);color:#fff;border-color:transparent;box-shadow:0 8px 20px rgba(142,69,184,.2)}
+.cr:first-of-type .pill:hover{color:#fff;transform:translateY(-1px)}
+.note{font-size:14px;color:var(--soft);text-align:center;margin-top:5vh}
+@media (max-width:720px){.cr{grid-template-columns:minmax(0,1fr);gap:10px}.connect{padding:10vh 14px}}
+
+/* footer: night, as on askavet.com */
+footer{background:var(--night);color:#fff;font-family:var(--font-display);padding:64px max(24px,calc(50vw - 600px)) 44px}
+.ft{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr) minmax(0,1fr);gap:36px}
+.ft .me{font-size:24px;font-weight:700;letter-spacing:-.3px}
+.soc{display:flex;gap:18px;margin-top:22px}
+.soc a{color:rgba(255,255,255,.75);transition:color .2s}
+.soc a:hover{color:#fff}
+.fcol h5{font-size:12px;font-weight:500;letter-spacing:.6px;text-transform:uppercase;color:var(--foot-label);margin-bottom:14px}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:12px}
+.fcol a{text-decoration:none;font-size:15px;font-weight:500;color:#fff}
+.fcol a:hover{text-decoration:underline}
+.fbar{display:flex;gap:14px;align-items:center;margin-top:48px;padding-top:24px;border-top:1px solid rgba(255,255,255,.1)}
+.fbar img{height:20px;width:auto;opacity:.8}.fbar .b-purrz img{height:24px}
+@media (max-width:720px){.ft{grid-template-columns:minmax(0,1fr);gap:28px}footer{padding:48px 24px 36px}}
+
+/* reveal */
+.js .reveal{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}
+.js .reveal.in{opacity:1;transform:none}
+
+/* reduced motion: a calm, static page */
+@media (prefers-reduced-motion:reduce){
+  .chrome{transition:none}
+  .js .stage{height:auto!important}
+  .js .stage > .sticky{position:relative;height:auto;overflow:visible}
+  .js .stage .fig{position:relative;transform:none!important;margin:0 auto}
+  .js .ow,.js .years,.js .tl-cards,.js .rail,.js .hint{display:none!important}
+  .js .hero-title,.js .hero-end,.js .tl-head,.js .brands-head,.js .brands-end{position:relative;opacity:1!important;transform:none!important}
+  .js .tl{display:none}
+  .js .why .w{color:#fff}
+  .js .reveal{opacity:1;transform:none;transition:none}
+  .co,.btn{transition:none}
+  .hint:after{animation:none}
+}
+</style>
+</head>
+<body>
+<div class="chrome">
+  <nav class="brandbar" aria-label="My companies">
+    <a class="b-aav" href="https://askavet.com" target="_blank" rel="noopener"><img src="img/brand/askavet-aav-logo-white.svg" alt="ASK A VET™"></a>
+    <a class="b-woopf" href="https://woopf.com" target="_blank" rel="noopener"><img src="img/brand/askavet-wopf.svg" alt="WOOPF™"></a>
+    <a class="b-purrz" href="https://purrz.com" target="_blank" rel="noopener"><img src="img/brand/askavet-purrz-white.svg" alt="PURRZ™"></a>
+  </nav>
+  <nav class="topnav" aria-label="Dr Duncan Houston">
+    <a class="me" href="#top">Dr Duncan Houston</a>
+    <div class="links"><a href="/">Articles</a><a href="#work">My working life</a><a href="#companies">My companies</a></div>
+    <a class="btn primary" href="#connect">Connect with me</a>
+  </nav>
+</div>
+
+<main>
+<section id="top" class="stage hero" data-stage="hero">
+  <div class="sticky">
+    <div class="hero-title"><p class="eyebrow">Hi, I&#x27;m</p><h1 class="gt">Dr Duncan Houston</h1></div>
+    <div class="orbit">
+      <span class="ow" aria-hidden="true">Emergency &amp; critical care</span>
+      <span class="ow" aria-hidden="true">General practice</span>
+      <span class="ow" aria-hidden="true">Mobile vet care</span>
+      <span class="ow" aria-hidden="true">Dog behavior &amp; training</span>
+      <span class="ow" aria-hidden="true">Cat behavior</span>
+      <span class="ow kv" aria-hidden="true"><i>Based in</i> Sydney and Hong Kong</span>
+      <span class="ow kv dm" aria-hidden="true"><i>Degree</i> BVSc, University of Sydney, 2017</span>
+      <span class="ow kv" aria-hidden="true"><i>Vet industry</i> 20 years</span>
+      <span class="ow kv dm" aria-hidden="true"><i>Natural pet food</i> More than 11 years</span>
+      <span class="ow kv" aria-hidden="true"><i>With animals since</i> Age 13</span>
+      <span class="ow kv dm" aria-hidden="true"><i>Main work</i> Emergency and critical care</span>
+      <span class="ow kv dm" aria-hidden="true"><i>Also worked in</i> New Zealand, the United States and China</span>
+      <span class="ow kv dm" aria-hidden="true"><i>Sport</i> Cycling, triathlon, trampoline dodgeball</span>
+      <span class="ow brand" aria-hidden="true">WOOPF™</span>
+      <span class="ow brand" aria-hidden="true">PURRZ™</span>
+      <span class="ow brand" aria-hidden="true">ASK A VET™</span>
+    </div>
+    <img class="fig" src="img/duncan-and-animals@2x.webp" width="1240" height="1110" alt="Dr Duncan Houston with Bridie, Kiko and Gary">
+    <div class="hero-end">
+      <p class="tagline">Looking after animals since I was 13.</p>
+      <p class="lede">Emergency and critical care veterinarian. Founder of ASK A VET™, WOOPF™ and PURRZ™.</p>
+      <ul class="chips"><li>Emergency &amp; critical care</li><li>General practice</li><li>Mobile vet care</li><li>Dog behavior &amp; training</li><li>Cat behavior</li><li>Founder, ASK A VET™, WOOPF™ &amp; PURRZ™</li></ul>
+      <p class="follow">Follow along on <a target="_blank" rel="noopener" href="https://www.instagram.com/drduncanthevet/">Instagram</a>, <a target="_blank" rel="noopener" href="https://www.tiktok.com/@drduncanthevet">TikTok</a> and <a target="_blank" rel="noopener" href="https://www.youtube.com/@drduncanthevet">YouTube</a>.</p>
+    </div>
+    <div class="hint" aria-hidden="true">Scroll</div>
+  </div>
+</section>
+
+<section class="stage why" data-stage="why">
+  <div class="sticky">
+    <div class="why-inner">
+      <p class="why-label lbl"><span>Why I do it</span></p>
+        <p class="why-line"><span class="w">Every</span> <span class="w">dog,</span> <span class="w">cat,</span> <span class="w">bird,</span> <span class="w">horse,</span> <span class="w">bunny,</span> <span class="w">fish</span> <span class="w">and</span> <span class="w">lizard</span> <span class="w">is</span> <span class="w">someone&#x27;s</span> <span class="w">family.</span></p>
+        <p class="why-line"><span class="w">I</span> <span class="w">have</span> <span class="w">been</span> <span class="w">on</span> <span class="w">both</span> <span class="w">sides</span> <span class="w">of</span> <span class="w">the</span> <span class="w">consult</span> <span class="w">table.</span> <span class="w">My</span> <span class="w">golden</span> <span class="w">retriever</span> <span class="w">Bridie</span> <span class="w">has</span> <span class="w">severe</span> <span class="w">hip</span> <span class="w">dysplasia,</span> <span class="w">so</span> <span class="w">I</span> <span class="w">know</span> <span class="w">how</span> <span class="w">it</span> <span class="w">feels</span> <span class="w">to</span> <span class="w">be</span> <span class="w">the</span> <span class="w">worried</span> <span class="w">owner.</span></p>
+      <p class="why-close"><span class="w">Twenty</span> <span class="w">years</span> <span class="w">in,</span> <span class="w">and</span> <span class="w">I</span> <span class="w">still</span> <span class="w">love</span> <span class="w">what</span> <span class="w">I</span> <span class="w">do.</span></p>
+    </div>
+  </div>
+</section>
+
+<section class="glance">
+  <h2 class="reveal">At a <span class="gt">glance</span></h2>
+  <div class="ggrid">
+      <div class="g reveal"><span class="gk">Based in</span><span class="gv">Sydney and Hong Kong</span></div>
+      <div class="g reveal"><span class="gk">Degree</span><span class="gv">BVSc, University of Sydney, 2017</span></div>
+      <div class="g reveal"><span class="gk">Vet industry</span><span class="gv">20 years</span></div>
+      <div class="g reveal"><span class="gk">Natural pet food</span><span class="gv">More than 11 years</span></div>
+      <div class="g reveal"><span class="gk">With animals since</span><span class="gv">Age 13</span></div>
+      <div class="g reveal"><span class="gk">Main work</span><span class="gv">Emergency and critical care</span></div>
+      <div class="g reveal"><span class="gk">Also worked in</span><span class="gv">New Zealand, the United States and China</span></div>
+      <div class="g reveal"><span class="gk">Sport</span><span class="gv">Cycling, triathlon, trampoline dodgeball</span></div>
+  </div>
+</section>
+
+<section class="bio">
+  <div class="bio-inner">
+      <p class="reveal">I started at 13, looking after the marine life at Clifton Gardens in Sydney for a scuba diving company. Sport took me around the world too. I raced for Australia&#x27;s under-19 team at the triathlon world championships, rode as a professional cyclist with Belgian-based teams, and captained my trampoline dodgeball team at the world tournament in Las Vegas. Through all of it I kept chasing one goal: becoming a vet. I studied part-time through the University of Sydney&#x27;s Elite Athlete Program.</p>
+      <p class="reveal">I graduated in 2017 as a Bachelor of Veterinary Science, and found my calling in emergency and critical care, in Sydney and Hong Kong. I have also worked in New Zealand and the United States, and as an advisor on animal health and veterinary products in China. General practice, house calls, dog training and pet nutrition? I have worked in all of them. For more than 11 years I have also worked with pet food companies, only natural ones, and I have been involved in nutrition studies with a natural pet food company.</p>
+      <p class="reveal">Now I am building a family of animal companies. ASK A VET™, WOOPF™ and PURRZ™ are already up and running. More are coming soon for birds, horses, small pets, fish, reptiles and the vets who care for them all. Every one of them comes from the same place: caring about animals and the people who love them.</p>
+  </div>
+</section>
+
+<section id="work" class="stage tl" data-stage="tl">
+  <div class="sticky">
+    <div class="tl-head"><h2>My working <span class="gt">life</span></h2></div>
+    <div class="years" aria-hidden="true">
+        <div class="yr" data-stop="0">2004</div>
+        <div class="yr" data-stop="1">2008</div>
+        <div class="yr" data-stop="2">2009</div>
+        <div class="yr" data-stop="3">2010</div>
+        <div class="yr" data-stop="4">2014</div>
+        <div class="yr" data-stop="5">2015</div>
+        <div class="yr" data-stop="6">2015</div>
+        <div class="yr" data-stop="7">2017</div>
+        <div class="yr" data-stop="8">2018</div>
+        <div class="yr" data-stop="9">2019</div>
+        <div class="yr" data-stop="10">2020</div>
+        <div class="yr" data-stop="11">2023</div>
+        <div class="yr" data-stop="12">Founder</div>
+    </div>
+    <img class="fig" src="img/duncan-and-animals@2x.webp" width="1240" height="1110" alt="" aria-hidden="true">
+    <div class="tl-cards" aria-hidden="true">
+        <div class="tc" data-stop="0" data-slot="0" data-n="2"><span class="tcb">Animals outside the clinic</span><span class="tcw">From age 13</span><span class="tct">Scuba diver, later assistant instructor and Divemaster, guiding divers and looking after the local marine life at Clifton Gardens in Sydney (to 2008, and again 2014 to 2016).</span></div>
+        <div class="tc" data-stop="0" data-slot="1" data-n="2"><span class="tcb">Sport</span><span class="tcw">2004 to 2006</span><span class="tct">Youth sailing champion and youth sailing instructor.</span></div>
+        <div class="tc" data-stop="1" data-slot="0" data-n="1"><span class="tcb">Education</span><span class="tcw">2008 to 2017</span><span class="tct">Bachelor of Veterinary Science (BVSc), University of Sydney. I studied part-time alongside elite sport, in the university&#x27;s Elite Athlete Program (sports scholarship 2009 to 2013).</span></div>
+        <div class="tc" data-stop="2" data-slot="0" data-n="2"><span class="tcb">Sport</span><span class="tcw">2009 to 2010</span><span class="tct">Junior triathlete. Australian under-19 team at the triathlon world championships in 2009.</span></div>
+        <div class="tc" data-stop="2" data-slot="1" data-n="2"><span class="tcb">Sport</span><span class="tcw">University</span><span class="tct">Australian University Games gold and silver medals in cycling and triathlon.</span></div>
+        <div class="tc" data-stop="3" data-slot="0" data-n="2"><span class="tcb">Sport</span><span class="tcw">2010 to 2014</span><span class="tct">Professional cyclist, including Belgian-based teams in 2014.</span></div>
+        <div class="tc" data-stop="3" data-slot="1" data-n="2"><span class="tcb">Pet food and nutrition</span><span class="tcw">Sport</span><span class="tct">As a professional athlete I had to be on top of my own nutrition.</span></div>
+        <div class="tc" data-stop="4" data-slot="0" data-n="1"><span class="tcb">Business and startups</span><span class="tcw">2014 to 2015</span><span class="tct">Founding team and marketing manager at a pet-sitting startup, from before its launch.</span></div>
+        <div class="tc" data-stop="5" data-slot="0" data-n="4"><span class="tcb">Pet food and nutrition</span><span class="tcw">2015 to present</span><span class="tct">Natural pet food companies: sales, importing and buying, product development and new formulas, nutrition talks and articles.</span></div>
+        <div class="tc" data-stop="5" data-slot="1" data-n="4"><span class="tcb">Pet food and nutrition</span><span class="tcw">Research</span><span class="tct">Nutrition studies with a natural pet food company, including research at a university research center in New Zealand.</span></div>
+        <div class="tc" data-stop="5" data-slot="2" data-n="4"><span class="tcb">Animals outside the clinic</span><span class="tcw">2015</span><span class="tct">Animal behavior internship with a Sydney dog trainer, including how nutrition affects behavior.</span></div>
+        <div class="tc" data-stop="5" data-slot="3" data-n="4"><span class="tcb">Animals outside the clinic</span><span class="tcw">Breeding</span><span class="tct">Breeder of fish and crustaceans.</span></div>
+        <div class="tc" data-stop="6" data-slot="0" data-n="3"><span class="tcb">Business and startups</span><span class="tcw">2015</span><span class="tct">Digital marketing and crowdfunding for a tech startup.</span></div>
+        <div class="tc" data-stop="6" data-slot="1" data-n="3"><span class="tcb">Pet food and nutrition</span><span class="tcw">Teaching</span><span class="tct">Nutrition talks at pet industry events and to University of Sydney vet students.</span></div>
+        <div class="tc" data-stop="6" data-slot="2" data-n="3"><span class="tcb">Sport</span><span class="tcw">2015 to 2017</span><span class="tct">Trampoline dodgeball: Sydney, NSW and Australian champion, and team captain at the world tournament in Las Vegas.</span></div>
+        <div class="tc" data-stop="7" data-slot="0" data-n="1"><span class="tcb">Education</span><span class="tcw">Final year</span><span class="tct">Placements in zoo, exotics, emergency, specialist, nutrition, general and mixed practice, in Australia, New Zealand and the United States.</span></div>
+        <div class="tc" data-stop="8" data-slot="0" data-n="3"><span class="tcb">Veterinary work</span><span class="tcw">2018 to present</span><span class="tct">Emergency and critical care veterinarian, Sydney.</span></div>
+        <div class="tc" data-stop="8" data-slot="1" data-n="3"><span class="tcb">Veterinary work</span><span class="tcw">2018 to 2019</span><span class="tct">Shelter vet on weekends, Sydney.</span></div>
+        <div class="tc" data-stop="8" data-slot="2" data-n="3"><span class="tcb">Business and startups</span><span class="tcw">2018</span><span class="tct">Design and marketing advisor to a startup.</span></div>
+        <div class="tc" data-stop="9" data-slot="0" data-n="2"><span class="tcb">Veterinary work</span><span class="tcw">2019 to present</span><span class="tct">House-call vet across Sydney, through my own mobile service, ASK A VET™ Mobile Veterinary Services.</span></div>
+        <div class="tc" data-stop="9" data-slot="1" data-n="2"><span class="tcb">Veterinary work</span><span class="tcw">2019 to 2020</span><span class="tct">Clinic and mobile vet at a mainly feline clinic, Sydney.</span></div>
+        <div class="tc" data-stop="10" data-slot="0" data-n="2"><span class="tcb">Veterinary work</span><span class="tcw">2020 to present</span><span class="tct">General practice locum vet, Sydney.</span></div>
+        <div class="tc" data-stop="10" data-slot="1" data-n="2"><span class="tcb">Veterinary work</span><span class="tcw">2020</span><span class="tct">On-camera vet for a TV show, and vet for animal advertising shoots.</span></div>
+        <div class="tc" data-stop="11" data-slot="0" data-n="1"><span class="tcb">Veterinary work</span><span class="tcw">2023 to present</span><span class="tct">Emergency and critical care veterinarian, Hong Kong.</span></div>
+        <div class="tc" data-stop="12" data-slot="0" data-n="1"><span class="tcb">Business and startups</span><span class="tcw">Founder</span><span class="tct">ASK A VET™, WOOPF™ and PURRZ™, plus the companies coming soon below.</span></div>
+    </div>
+    <ol class="rail" aria-hidden="true">
+        <li data-stop="0"><span>2004</span></li>
+        <li data-stop="1"><span>2008</span></li>
+        <li data-stop="2"><span>2009</span></li>
+        <li data-stop="3"><span>2010</span></li>
+        <li data-stop="4"><span>2014</span></li>
+        <li data-stop="5"><span>2015</span></li>
+        <li data-stop="6"><span>2015</span></li>
+        <li data-stop="7"><span>2017</span></li>
+        <li data-stop="8"><span>2018</span></li>
+        <li data-stop="9"><span>2019</span></li>
+        <li data-stop="10"><span>2020</span></li>
+        <li data-stop="11"><span>2023</span></li>
+        <li data-stop="12"><span>Founder</span></li>
+    </ol>
+  </div>
+</section>
+
+<section class="cv">
+  <p class="cv-sub reveal">The short version of my CV.</p>
+  <div class="cvgrid">
+      <div class="cvb reveal"><h3>Veterinary work</h3><ul><li><span class="when">2023 to present</span><span>Emergency and critical care veterinarian, Hong Kong.</span></li><li><span class="when">2018 to present</span><span>Emergency and critical care veterinarian, Sydney.</span></li><li><span class="when">2020 to present</span><span>General practice locum vet, Sydney.</span></li><li><span class="when">2019 to present</span><span>House-call vet across Sydney, through my own mobile service, ASK A VET™ Mobile Veterinary Services.</span></li><li><span class="when">2019 to 2020</span><span>Clinic and mobile vet at a mainly feline clinic, Sydney.</span></li><li><span class="when">2018 to 2019</span><span>Shelter vet on weekends, Sydney.</span></li><li><span class="when">2020</span><span>On-camera vet for a TV show, and vet for animal advertising shoots.</span></li></ul></div>
+      <div class="cvb reveal"><h3>Education</h3><ul><li><span class="when">2008 to 2017</span><span>Bachelor of Veterinary Science (BVSc), University of Sydney. I studied part-time alongside elite sport, in the university&#x27;s Elite Athlete Program (sports scholarship 2009 to 2013).</span></li><li><span class="when">Final year</span><span>Placements in zoo, exotics, emergency, specialist, nutrition, general and mixed practice, in Australia, New Zealand and the United States.</span></li></ul></div>
+      <div class="cvb reveal"><h3>Pet food and nutrition</h3><ul><li><span class="when">2015 to present</span><span>Natural pet food companies: sales, importing and buying, product development and new formulas, nutrition talks and articles.</span></li><li><span class="when">Research</span><span>Nutrition studies with a natural pet food company, including research at a university research center in New Zealand.</span></li><li><span class="when">Teaching</span><span>Nutrition talks at pet industry events and to University of Sydney vet students.</span></li><li><span class="when">Sport</span><span>As a professional athlete I had to be on top of my own nutrition.</span></li></ul></div>
+      <div class="cvb reveal"><h3>Animals outside the clinic</h3><ul><li><span class="when">From age 13</span><span>Scuba diver, later assistant instructor and Divemaster, guiding divers and looking after the local marine life at Clifton Gardens in Sydney (to 2008, and again 2014 to 2016).</span></li><li><span class="when">2015</span><span>Animal behavior internship with a Sydney dog trainer, including how nutrition affects behavior.</span></li><li><span class="when">Breeding</span><span>Breeder of fish and crustaceans.</span></li><li><span class="when">Wildlife</span><span>Volunteer on a NSW National Parks wildlife survey using camera traps.</span></li></ul></div>
+      <div class="cvb reveal"><h3>Business and startups</h3><ul><li><span class="when">Founder</span><span>ASK A VET™, WOOPF™ and PURRZ™, plus the companies coming soon below.</span></li><li><span class="when">2014 to 2015</span><span>Founding team and marketing manager at a pet-sitting startup, from before its launch.</span></li><li><span class="when">2015</span><span>Digital marketing and crowdfunding for a tech startup.</span></li><li><span class="when">2018</span><span>Design and marketing advisor to a startup.</span></li></ul></div>
+      <div class="cvb reveal"><h3>Sport</h3><ul><li><span class="when">2010 to 2014</span><span>Professional cyclist, including Belgian-based teams in 2014.</span></li><li><span class="when">2009 to 2010</span><span>Junior triathlete. Australian under-19 team at the triathlon world championships in 2009.</span></li><li><span class="when">University</span><span>Australian University Games gold and silver medals in cycling and triathlon.</span></li><li><span class="when">2015 to 2017</span><span>Trampoline dodgeball: Sydney, NSW and Australian champion, and team captain at the world tournament in Las Vegas.</span></li><li><span class="when">2004 to 2006</span><span>Youth sailing champion and youth sailing instructor.</span></li></ul></div>
+  </div>
+</section>
+
+<section id="companies" class="stage brands" data-stage="brands">
+  <div class="sticky">
+    <div class="brands-head"><h2 class="sec-h">My <span class="gt">companies</span></h2></div>
+    <div class="orbit">
+      <span class="ow brand live" aria-hidden="true">WOOPF™</span>
+      <span class="ow brand live" aria-hidden="true">PURRZ™</span>
+      <span class="ow brand" aria-hidden="true">CHUURP™</span>
+      <span class="ow brand" aria-hidden="true">XTALLION™</span>
+      <span class="ow brand" aria-hidden="true">NIBULZ™</span>
+      <span class="ow brand" aria-hidden="true">BUBOOLS™</span>
+      <span class="ow brand" aria-hidden="true">ASKAVETMEDS™</span>
+      <span class="ow brand" aria-hidden="true">VETWAREHOUSE™</span>
+      <span class="ow brand live" aria-hidden="true">ASK A VET™</span>
+      <span class="ow brand" aria-hidden="true">TEACH A VET™</span>
+      <span class="ow brand" aria-hidden="true">NEED A VET™</span>
+      <span class="ow brand" aria-hidden="true">WANT A VET™</span>
+      <span class="ow brand" aria-hidden="true">OBICARE™</span>
+    </div>
+    <img class="fig" src="img/duncan-and-animals@2x.webp" width="1240" height="1110" alt="" aria-hidden="true">
+    <div class="brands-end"><p>ASK A VET™, WOOPF™ and PURRZ™ are running today. The others are coming soon. Here is what each one is, and why I started it.</p></div>
+  </div>
+</section>
+
+<section class="cos">
+    <div class="fam"><div class="famh reveal"><h3>Australian Premium Animal Products</h3><span class="lbl gt">Premium animal products, designed by a vet</span></div><div class="cogrid"><article class="co reveal live"><header><h4>WOOPF™</h4><span class="st">Live</span></header><p class="dom"><a href="https://woopf.com">woopf.com</a></p><p class="what">Dog products.</p><p class="cwhy"><b>Why</b> WOOPF™ started partly because of my golden retriever Bridie, who has severe hip dysplasia. I design the products as a vet, and my own dogs help test them.</p></article><article class="co reveal live"><header><h4>PURRZ™</h4><span class="st">Live</span></header><p class="dom"><a href="https://purrz.com">purrz.com</a></p><p class="what">Cat products.</p><p class="cwhy"><b>Why</b> I design PURRZ™ products as a vet, built around a cat&#x27;s instincts and need for enrichment. The Cat Standard.</p></article><article class="co reveal"><header><h4>CHUURP™</h4><span class="st">Coming soon</span></header><p class="dom">chuurp.com</p><p class="what">Bird products.</p><p class="cwhy"><b>Why</b> Bird owners deserve products designed by a vet too, the way WOOPF™ and PURRZ™ are for dogs and cats.</p></article><article class="co reveal"><header><h4>XTALLION™</h4><span class="st">Coming soon</span></header><p class="dom">xtallion.com</p><p class="what">Horse products.</p><p class="cwhy"><b>Why</b> Horses and their riders will get the same vet-designed approach as my dog and cat brands.</p></article><article class="co reveal"><header><h4>NIBULZ™</h4><span class="st">Coming soon</span></header><p class="dom">nibulz.com</p><p class="what">Products for rabbits, rats, guinea pigs and other small pets.</p><p class="cwhy"><b>Why</b> Small pets need products made with the same care as any dog or cat.</p></article><article class="co reveal"><header><h4>BUBOOLS™</h4><span class="st">Coming soon</span></header><p class="dom">bubools.com</p><p class="what">Aquatics: products for fish and other aquatic pets.</p><p class="cwhy"><b>Why</b> I have looked after marine life since I was 13, and I have bred fish and crustaceans. BUBOOLS™ brings that to people who keep aquatic pets.</p></article><article class="co reveal"><header><h4>ASKAVETMEDS™</h4><span class="st">Coming soon</span></header><p class="dom">askavetmeds.com</p><p class="what">Supplements and prescription medicines.</p><p class="cwhy"><b>Why</b> After more than 11 years working with natural pet food companies, I want owners to get supplements and medicines from a source a vet stands behind.</p></article><article class="co reveal"><header><h4>VETWAREHOUSE™</h4><span class="st">Coming soon</span></header><p class="dom">vetwarehouse.com</p><p class="what">Online pet shop.</p><p class="cwhy"><b>Why</b> One online pet shop for every kind of animal, with products chosen by a vet.</p></article></div></div>
+    <div class="fam"><div class="famh reveal"><h3>Veterinary companies</h3><span class="lbl gt">Services for vets, clinics and owners</span></div><div class="cogrid"><article class="co reveal live"><header><h4>ASK A VET™</h4><span class="st">Live</span></header><p class="dom"><a href="https://askavet.com">askavet.com</a></p><p class="what">Vet chat app on subscription, with GPS trackers, ID tags and free vet tools.</p><p class="cwhy"><b>Why</b> I wanted one place for an animal&#x27;s health: a vet to chat to, health records, GPS tracking and ID tags. My goal is the Apple Health for pets and farm animals.</p></article><article class="co reveal"><header><h4>TEACH A VET™</h4><span class="st">Coming soon</span></header><p class="dom">teachavet.com</p><p class="what">Webinars on subscription.</p><p class="cwhy"><b>Why</b> I already teach, speaking to vet students and at pet industry events. TEACH A VET™ will turn that into subscription webinars.</p></article><article class="co reveal"><header><h4>NEED A VET™</h4><span class="st">Coming soon</span></header><p class="dom">needavet.com</p><p class="what">App for locum shifts and permanent jobs, for vets and vet nurses.</p><p class="cwhy"><b>Why</b> I have worked casual and locum shifts for years. NEED A VET™ will make it easier for clinics to find a casual vet, and for vets to find shifts.</p></article><article class="co reveal"><header><h4>WANT A VET™</h4><span class="st">Coming soon</span></header><p class="dom">wantavet.com</p><p class="what">Vet recruitment service, paid on commission.</p><p class="cwhy"><b>Why</b> WANT A VET™ will help clinics find the right vet for the job, and help vets find the right clinic.</p></article><article class="co reveal"><header><h4>OBICARE™</h4><span class="st">Coming soon</span></header><p class="dom">obicare.com</p><p class="what">Veterinary equipment.</p><p class="cwhy"><b>Why</b> Vets use their equipment on every shift. OBICARE™ will make veterinary equipment designed by a working emergency vet.</p></article></div></div>
+</section>
+
+<section class="fits">
+  <div class="fits-orbit" aria-hidden="true">
+    <span class="fits-center">ASK A VET™</span>
+        <span class="fw" aria-hidden="true">WOOPF™</span>
+        <span class="fw" aria-hidden="true">PURRZ™</span>
+        <span class="fw" aria-hidden="true">CHUURP™</span>
+        <span class="fw" aria-hidden="true">XTALLION™</span>
+        <span class="fw" aria-hidden="true">NIBULZ™</span>
+        <span class="fw" aria-hidden="true">BUBOOLS™</span>
+        <span class="fw" aria-hidden="true">ASKAVETMEDS™</span>
+        <span class="fw" aria-hidden="true">VETWAREHOUSE™</span>
+        <span class="fw" aria-hidden="true">TEACH A VET™</span>
+        <span class="fw" aria-hidden="true">NEED A VET™</span>
+        <span class="fw" aria-hidden="true">WANT A VET™</span>
+        <span class="fw" aria-hidden="true">OBICARE™</span>
+  </div>
+  <p class="fits-label reveal"><span class="lbl gt">How it all fits together</span></p>
+  <p class="fits-text reveal">My goal is one connected group of animal businesses, covering products, nutrition, health and tracking, with ASK A VET™ at the center.</p>
+</section>
+
+<section id="connect" class="connect">
+  <div class="wrap">
+    <h2 class="sec-h reveal">Connect with <span class="gt">me</span></h2>
+    <p class="sub reveal">Follow along, and say hello. Here is where to find me and the companies that are running today.</p>
+      <div class="cr reveal"><h4>Me, Dr Duncan the Vet</h4><div class="pills"><a class="pill" href="https://www.instagram.com/drduncanthevet/" target="_blank" rel="noopener">Instagram @drduncanthevet</a><a class="pill" href="https://www.tiktok.com/@drduncanthevet" target="_blank" rel="noopener">TikTok @drduncanthevet</a><a class="pill" href="https://www.youtube.com/@drduncanthevet" target="_blank" rel="noopener">YouTube @drduncanthevet</a></div></div>
+      <div class="cr reveal"><h4>ASK A VET™</h4><div class="pills"><a class="pill" href="https://askavet.com" target="_blank" rel="noopener">askavet.com</a><a class="pill" href="https://www.instagram.com/trustaskavet/" target="_blank" rel="noopener">Instagram @trustaskavet</a><a class="pill" href="https://www.facebook.com/trustaskavet" target="_blank" rel="noopener">Facebook</a><a class="pill" href="https://www.tiktok.com/@trustaskavet" target="_blank" rel="noopener">TikTok @trustaskavet</a><a class="pill" href="https://www.youtube.com/@trustaskavet" target="_blank" rel="noopener">YouTube @trustaskavet</a><a class="pill" href="https://www.linkedin.com/company/askavet/" target="_blank" rel="noopener">LinkedIn</a></div></div>
+      <div class="cr reveal"><h4>WOOPF™</h4><div class="pills"><a class="pill" href="https://woopf.com" target="_blank" rel="noopener">woopf.com</a><a class="pill" href="https://www.instagram.com/woopffordogs/" target="_blank" rel="noopener">Instagram @woopffordogs</a><a class="pill" href="https://www.facebook.com/woopf" target="_blank" rel="noopener">Facebook</a><a class="pill" href="https://www.tiktok.com/@woopffordogs" target="_blank" rel="noopener">TikTok @woopffordogs</a><a class="pill" href="https://x.com/woopffordogs" target="_blank" rel="noopener">X @woopffordogs</a></div></div>
+      <div class="cr reveal"><h4>PURRZ™</h4><div class="pills"><a class="pill" href="https://purrz.com" target="_blank" rel="noopener">purrz.com</a><a class="pill" href="https://www.instagram.com/purrzforcats/" target="_blank" rel="noopener">Instagram @purrzforcats</a><a class="pill" href="https://www.facebook.com/purrz" target="_blank" rel="noopener">Facebook</a><a class="pill" href="https://www.tiktok.com/@purrzforcats" target="_blank" rel="noopener">TikTok @purrzforcats</a><a class="pill" href="https://x.com/purrzforcats" target="_blank" rel="noopener">X @purrzforcats</a></div></div>
+    <p class="note">The companies marked coming soon will be linked here as each one opens.</p>
+  </div>
+</section>
+</main>
+<footer>
+  <div class="ft">
+    <div>
+      <p class="me">Dr Duncan Houston</p>
+      <div class="soc"><a href="https://www.instagram.com/drduncanthevet/" target="_blank" rel="noopener" aria-label="Instagram @drduncanthevet"><svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C8.74 0 8.333 0.015 7.053 0.072C5.775 0.132 4.905 0.333 4.14 0.63C3.351 0.936 2.681 1.347 2.014 2.014C1.347 2.681 0.935 3.35 0.63 4.14C0.333 4.905 0.131 5.775 0.072 7.053C0.012 8.333 0 8.74 0 12C0 15.26 0.015 15.667 0.072 16.947C0.132 18.224 0.333 19.095 0.63 19.86C0.936 20.648 1.347 21.319 2.014 21.986C2.681 22.652 3.35 23.065 4.14 23.37C4.906 23.666 5.776 23.869 7.053 23.928C8.333 23.988 8.74 24 12 24C15.26 24 15.667 23.985 16.947 23.928C18.224 23.868 19.095 23.666 19.86 23.37C20.648 23.064 21.319 22.652 21.986 21.986C22.652 21.319 23.065 20.651 23.37 19.86C23.666 19.095 23.869 18.224 23.928 16.947C23.988 15.667 24 15.26 24 12C24 8.74 23.985 8.333 23.928 7.053C23.868 5.776 23.666 4.904 23.37 4.14C23.064 3.351 22.652 2.681 21.986 2.014C21.319 1.347 20.651 0.935 19.86 0.63C19.095 0.333 18.224 0.131 16.947 0.072C15.667 0.012 15.26 0 12 0ZM12 2.16C15.203 2.16 15.585 2.176 16.85 2.231C18.02 2.286 18.655 2.48 19.077 2.646C19.639 2.863 20.037 3.123 20.459 3.542C20.878 3.962 21.138 4.361 21.355 4.923C21.519 5.345 21.715 5.98 21.768 7.15C21.825 8.416 21.838 8.796 21.838 12C21.838 15.204 21.823 15.585 21.764 16.85C21.703 18.02 21.508 18.655 21.343 19.077C21.119 19.639 20.864 20.037 20.444 20.459C20.025 20.878 19.62 21.138 19.064 21.355C18.644 21.519 17.999 21.715 16.829 21.768C15.555 21.825 15.18 21.838 11.97 21.838C8.759 21.838 8.384 21.823 7.111 21.764C5.94 21.703 5.295 21.508 4.875 21.343C4.306 21.119 3.915 20.864 3.496 20.444C3.075 20.025 2.806 19.62 2.596 19.064C2.431 18.644 2.237 17.999 2.176 16.829C2.131 15.569 2.115 15.18 2.115 11.985C2.115 8.789 2.131 8.399 2.176 7.124C2.237 5.954 2.431 5.31 2.596 4.89C2.806 4.32 3.075 3.93 3.496 3.509C3.915 3.09 4.306 2.82 4.875 2.611C5.295 2.445 5.926 2.25 7.096 2.19C8.371 2.145 8.746 2.13 11.955 2.13L12 2.16ZM12 5.838C8.595 5.838 5.838 8.598 5.838 12C5.838 15.405 8.598 18.162 12 18.162C15.405 18.162 18.162 15.402 18.162 12C18.162 8.595 15.402 5.838 12 5.838ZM12 16C9.79 16 8 14.21 8 12C8 9.79 9.79 8 12 8C14.21 8 16 9.79 16 12C16 14.21 14.21 16 12 16ZM19.846 5.595C19.846 6.39 19.2 7.035 18.406 7.035C17.611 7.035 16.966 6.389 16.966 5.595C16.966 4.801 17.612 4.156 18.406 4.156C19.199 4.155 19.846 4.801 19.846 5.595Z"></path></svg></a><a href="https://www.tiktok.com/@drduncanthevet" target="_blank" rel="noopener" aria-label="TikTok @drduncanthevet"><svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M19.3233 5.56219C19.1715 5.4837 19.0236 5.39765 18.8804 5.30437C18.4638 5.02896 18.0818 4.70445 17.7427 4.33781C16.8943 3.36703 16.5774 2.38219 16.4607 1.69266H16.4654C16.3679 1.12031 16.4082 0.75 16.4143 0.75H12.5499V15.6928C12.5499 15.8934 12.5499 16.0917 12.5415 16.2877C12.5415 16.312 12.5391 16.3345 12.5377 16.3608C12.5377 16.3716 12.5377 16.3828 12.5354 16.3941C12.5354 16.3969 12.5354 16.3997 12.5354 16.4025C12.4946 16.9386 12.3228 17.4566 12.0349 17.9107C11.747 18.3648 11.3519 18.7413 10.8844 19.0069C10.3972 19.2841 9.8461 19.4295 9.28552 19.4287C7.48505 19.4287 6.02583 17.9606 6.02583 16.1475C6.02583 14.3344 7.48505 12.8662 9.28552 12.8662C9.62634 12.8659 9.96506 12.9196 10.2891 13.0252L10.2938 9.09047C9.31007 8.9634 8.31067 9.04158 7.35866 9.32008C6.40666 9.59858 5.5227 10.0714 4.76255 10.7086C4.09649 11.2873 3.53653 11.9778 3.10786 12.7491C2.94474 13.0303 2.32927 14.1605 2.25474 15.9947C2.20786 17.0358 2.52052 18.1144 2.66958 18.5602V18.5695C2.76333 18.832 3.12661 19.7278 3.71865 20.483C4.19604 21.0887 4.76006 21.6208 5.39255 22.0622V22.0528L5.40193 22.0622C7.27271 23.3334 9.34693 23.25 9.34693 23.25C9.70599 23.2355 10.9088 23.25 12.2747 22.6027C13.7897 21.885 14.6522 20.8158 14.6522 20.8158C15.2032 20.1769 15.6414 19.4488 15.9479 18.6628C16.2976 17.7436 16.4143 16.6411 16.4143 16.2005V8.27297C16.4611 8.30109 17.0855 8.71406 17.0855 8.71406C17.0855 8.71406 17.9851 9.29062 19.3885 9.66609C20.3954 9.93328 21.7519 9.98953 21.7519 9.98953V6.15328C21.2766 6.20484 20.3115 6.05484 19.3233 5.56219Z"></path></svg></a><a href="https://www.youtube.com/@drduncanthevet" target="_blank" rel="noopener" aria-label="YouTube @drduncanthevet"><svg fill="currentColor" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M23.498 6.18592C23.3624 5.6752 23.095 5.20906 22.7226 4.83419C22.3502 4.45931 21.8858 4.18886 21.376 4.04992C19.505 3.54492 12 3.54492 12 3.54492C12 3.54492 4.495 3.54492 2.623 4.04992C2.11341 4.18911 1.64929 4.45966 1.27708 4.8345C0.904861 5.20935 0.637591 5.67536 0.502 6.18592C0 8.06992 0 11.9999 0 11.9999C0 11.9999 0 15.9299 0.502 17.8139C0.637586 18.3246 0.904975 18.7908 1.27739 19.1657C1.64981 19.5405 2.11418 19.811 2.624 19.9499C4.495 20.4549 12 20.4549 12 20.4549C12 20.4549 19.505 20.4549 21.377 19.9499C21.8869 19.8111 22.3513 19.5407 22.7237 19.1658C23.0961 18.7909 23.3635 18.3247 23.499 17.8139C24 15.9299 24 11.9999 24 11.9999C24 11.9999 24 8.06992 23.498 6.18592ZM9.545 15.5679V8.43192L15.818 11.9999L9.545 15.5679Z"></path></svg></a></div>
+    </div>
+    <div class="fcol"><h5>My companies</h5><ul><li><a href="https://askavet.com" target="_blank" rel="noopener">askavet.com</a></li><li><a href="https://woopf.com" target="_blank" rel="noopener">woopf.com</a></li><li><a href="https://purrz.com" target="_blank" rel="noopener">purrz.com</a></li></ul></div>
+    <div class="fcol"><h5>Connect with me</h5><ul><li><a href="https://www.instagram.com/drduncanthevet/" target="_blank" rel="noopener">Instagram @drduncanthevet</a></li><li><a href="https://www.tiktok.com/@drduncanthevet" target="_blank" rel="noopener">TikTok @drduncanthevet</a></li><li><a href="https://www.youtube.com/@drduncanthevet" target="_blank" rel="noopener">YouTube @drduncanthevet</a></li></ul></div>
+  </div>
+  <div class="fbar"><a class="b-aav" href="https://askavet.com" target="_blank" rel="noopener"><img src="img/brand/askavet-aav-logo-white.svg" alt="ASK A VET™"></a>
+    <a class="b-woopf" href="https://woopf.com" target="_blank" rel="noopener"><img src="img/brand/askavet-wopf.svg" alt="WOOPF™"></a>
+    <a class="b-purrz" href="https://purrz.com" target="_blank" rel="noopener"><img src="img/brand/askavet-purrz-white.svg" alt="PURRZ™"></a></div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $ = function(s,r){return (r||document).querySelector(s)}, $$ = function(s,r){return Array.prototype.slice.call((r||document).querySelectorAll(s))};
+  var clamp = function(v,a,b){return v<a?a:(v>b?b:v)}, lerp=function(a,b,t){return a+(b-a)*t};
+  var ease = function(t){t=clamp(t,0,1);return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2};
+  var seg = function(p,a,b){return clamp((p-a)/(b-a),0,1)};
+  var now = function(){return (typeof window.__T==='number')?window.__T:performance.now()/1000};
+  var AR = 1240/1110;
+
+  // brand bar tucks away once the visitor scrolls, as on askavet.com
+  var root=document.documentElement;
+  function onScroll(){ root.classList.toggle('scrolled', window.scrollY>40); }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+
+  // reveal on scroll
+  var io = 'IntersectionObserver' in window ? new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px'}) : null;
+  $$('.reveal').forEach(function(el){ if(io && !reduce) io.observe(el); else el.classList.add('in'); });
+
+  // smooth anchor jumps
+  $$('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=$(a.getAttribute('href'));if(!t)return;e.preventDefault();
+    window.scrollTo({top:t.getBoundingClientRect().top+scrollY,behavior:reduce?'auto':'smooth'});});});
+  if(reduce){ $$('.why .w').forEach(function(w){w.classList.add('on')}); return; }
+
+  var VW=0,VH=0,mobile=false;
+  var stages = {};
+  $$('[data-stage]').forEach(function(s){stages[s.dataset.stage]=s});
+  function prog(s){var r=s.getBoundingClientRect();var len=s.offsetHeight-VH;return len>0?clamp(-r.top/len,0,1):0}
+  function visible(s){var r=s.getBoundingClientRect();return r.bottom>-50 && r.top<VH+50}
+
+  // orbit engine
+  function Orbit(stage){
+    this.stage=stage; this.words=$$('.ow',stage); this.fig=$('.fig',stage); this.sizes=[];
+  }
+  Orbit.prototype.measure=function(){
+    this.active=this.words.filter(function(w){return getComputedStyle(w).display!=='none'});
+    this.sizes=this.active.map(function(w){return [w.offsetWidth,w.offsetHeight]});
+  };
+  Orbit.prototype.place=function(o){
+    // o: cx, cy, fw, fh, spin, inT (0..1 fly in), outT (0..1 fly out)
+    // three tilted rings: words pass in front of the legs and behind the shoulders, never across the face
+    var n=this.active.length, radii=[.84,1.0,1.1], tilts=mobile?[.30,.34,.38]:[.16,.20,.24], speeds=[1,.86,.72];
+    var centers=mobile?[-.40,.02,.44]:[-.20,.08,.36];
+    var rx0=mobile?VW*.40:Math.max(o.fw*.62,Math.min(VW*.36,560));
+    for(var i=0;i<n;i++){
+      var w=this.active[i], sz=this.sizes[i], ring=i%3;
+      var a=(i/n)*Math.PI*2+ring*.9+o.spin*speeds[ring];
+      var rx=rx0*radii[ring], ry=rx*tilts[ring];
+      var spread=lerp(2.5,1,ease(o.inT))*lerp(1,2.6,ease(o.outT));
+      var x=o.cx+Math.cos(a)*rx*spread, y=o.cy+o.fh*centers[ring]+Math.sin(a)*ry*Math.min(spread,1.6);
+      if(spread<1.2){ x=clamp(x, sz[0]/2+10, VW-sz[0]/2-10); }
+      var z=Math.sin(a), depth=(z+1)/2;
+      var s=.74+.34*depth, op=(.38+.62*depth)*ease(o.inT)*(1-ease(o.outT));
+      w.style.transform='translate3d('+(x-sz[0]/2).toFixed(1)+'px,'+(y-sz[1]/2).toFixed(1)+'px,0) scale('+s.toFixed(3)+')';
+      w.style.opacity=op.toFixed(3);
+      w.style.zIndex=z>0?3:1;
+    }
+  };
+  function placeFig(img,cx,cy,fw,scale){
+    var fh=fw/AR; img.style.width=fw+'px';
+    img.style.transform='translate3d('+(cx-fw/2).toFixed(1)+'px,'+(cy-fh/2).toFixed(1)+'px,0) scale('+scale.toFixed(4)+')';
+  }
+
+  var hero={el:stages.hero}; hero.orbit=new Orbit(hero.el); hero.title=$('.hero-title',hero.el); hero.end=$('.hero-end',hero.el); hero.hint=$('.hint',hero.el); hero.fig=$('.fig',hero.el);
+  var brands={el:stages.brands}; brands.orbit=new Orbit(brands.el); brands.end=$('.brands-end',brands.el); brands.head=$('.brands-head',brands.el); brands.fig=$('.fig',brands.el);
+  var why={el:stages.why, words:$$('.w',stages.why)};
+  var tl={el:stages.tl, fig:$('.fig',stages.tl), years:$$('.yr',stages.tl), cards:$$('.tc',stages.tl), rail:$$('.rail li',stages.tl)};
+  tl.nStops=tl.years.length;
+  var fits={el:$('.fits'), words:$$('.fw'), on:false};
+  if('IntersectionObserver' in window){ new IntersectionObserver(function(es){fits.on=es[0].isIntersecting}).observe(fits.el); }
+
+  function layout(){
+    VW=document.documentElement.clientWidth; VH=window.innerHeight; mobile=VW<720;
+    hero.el.style.height=(mobile?380:430)+'vh';
+    why.el.style.height='260vh';
+    brands.el.style.height=(mobile?280:320)+'vh';
+    tl.desktop=VW>=900 && VH>=560;
+    tl.el.style.height=(tl.desktop? (tl.nStops*78+70) : (tl.cards.length*46+70))+'vh';
+    var cw=tl.desktop?Math.round(clamp(VW*.22,270,340)):Math.min(VW-40,420);
+    tl.el.style.setProperty('--cw',cw+'px'); tl.cw=cw;
+    hero.orbit.measure(); brands.orbit.measure();
+    tl.sizes=tl.cards.map(function(c){return c.offsetHeight});
+    dirty=true;
+  }
+
+  function figW(maxH){ return Math.min(mobile?VW*.86:VW*.6, maxH*AR); }
+
+  function frame(){
+    var t=now();
+    if(visible(hero.el)){
+      var p=prog(hero.el);
+      var fw=figW(VH*(mobile?.43:.62)), fh=fw/AR;
+      var a=ease(seg(p,0,.2)), b=ease(seg(p,.74,.92));
+      var cy0=VH*(mobile?.62:.64), cy1=VH*(mobile?.50:.53), cy2=VH*(mobile?.34:.37);
+      var cy=lerp(lerp(cy0,cy1,a),cy2,b), sc=lerp(lerp(.8,1,a),mobile?.78:.74,b);
+      placeFig(hero.fig,VW/2,cy,fw,sc);
+      var tt=seg(p,0,.15);
+      hero.title.style.opacity=(1-ease(tt)).toFixed(3);
+      hero.title.style.transform='translate3d(0,'+(-70*ease(tt)).toFixed(1)+'px,0) scale('+(1-.08*ease(tt)).toFixed(3)+')';
+      hero.hint.style.opacity=(1-seg(p,0,.04)).toFixed(3);
+      var e=ease(seg(p,.83,.98));
+      hero.end.style.opacity=e.toFixed(3);
+      hero.end.style.transform='translate3d(0,'+(30*(1-e)).toFixed(1)+'px,0)';
+      hero.orbit.place({cx:VW/2,cy:cy,fw:fw*sc,fh:fh*sc,spin:p*Math.PI*2.2+t*.06,inT:seg(p,.05,.26),outT:seg(p,.7,.86)});
+    }
+    if(visible(why.el)){
+      var pw=prog(why.el), n=why.words.length, lit=Math.floor(seg(pw,.08,.85)*(n+1));
+      for(var i=0;i<n;i++){ why.words[i].classList.toggle('on',i<lit); }
+    }
+    if(visible(tl.el)) drawTimeline(prog(tl.el));
+    if(visible(brands.el)){
+      var pb=prog(brands.el);
+      var fwb=figW(VH*(mobile?.38:.52)), fhb=fwb/AR;
+      var ub=ease(seg(pb,.7,.88));
+      var cyb=lerp(VH*(mobile?.5:.55),VH*(mobile?.42:.45),ub), scb=lerp(lerp(.9,1,ease(seg(pb,0,.25))),.82,ub);
+      placeFig(brands.fig,VW/2,cyb,fwb,scb);
+      brands.orbit.place({cx:VW/2,cy:cyb,fw:fwb*scb,fh:fhb*scb,spin:pb*Math.PI*2+t*.05,inT:seg(pb,.02,.3),outT:seg(pb,.68,.86)});
+      var eb=ease(seg(pb,.76,.94));
+      brands.end.style.opacity=eb.toFixed(3);
+      brands.end.style.transform='translate3d(0,'+(24*(1-eb)).toFixed(1)+'px,0)';
+    }
+    if(fits.on){
+      var fb=fits.el.querySelector('.fits-orbit'), R=fb.offsetWidth/2*.82, Ry=fb.offsetHeight/2*.84, m=fits.words.length;
+      for(var k=0;k<m;k++){
+        var ang=(k/m)*Math.PI*2+t*.12, rr=(k%2)?.84:1, wx=Math.cos(ang)*R*rr, wy=Math.sin(ang)*Ry*rr; // alternate names sit on an inner ring so neighbours never touch
+        fits.words[k].style.transform='translate(-50%,-50%) translate3d('+wx.toFixed(1)+'px,'+wy.toFixed(1)+'px,0)';
+      }
+    }
+    requestAnimationFrame(frame);
+  }
+
+  function drawTimeline(p){
+    var S=tl.nStops, cards=tl.cards;
+    if(tl.desktop){
+      var top=VH*.17, avail=VH-top-VH*.04;
+      var fw=Math.min(figW(avail*.86), VW-2*(tl.cw+40)-150); var fh=fw/AR;
+      var cx=VW/2, cy=top+avail/2+VH*.02;
+      placeFig(tl.fig,cx,cy,fw,1);
+      var f=p*S-.5; f=clamp(f,-.2,S-.8);
+      tl.years.forEach(function(y,i){var d=f-i; var o=clamp(1-Math.abs(d)*1.5,0,1);
+        y.style.opacity=o.toFixed(3); y.style.transform='translate3d(0,'+((cy-y.offsetHeight/2)-d*VH*.12).toFixed(1)+'px,0)';});
+      var groups={};
+      cards.forEach(function(c,ci){var st=+c.dataset.stop;(groups[st]=groups[st]||[]).push(ci)});
+      Object.keys(groups).forEach(function(st){
+        var idx=groups[st], d=f-st, o=clamp(1.25-Math.abs(d)*2.1,0,1);
+        var sides=[[],[]]; idx.forEach(function(ci,j){ sides[(idx.length===1)?0:(j%2)].push(ci) });
+        sides.forEach(function(list,sd){
+          var tot=list.reduce(function(s,ci){return s+tl.sizes[ci]},0)+(list.length-1)*16;
+          var y=cy-tot/2, dir=sd===0?-1:1;
+          list.forEach(function(ci,k){
+            var c=cards[ci], h=tl.sizes[ci];
+            var x=cx+dir*(fw/2+26+tl.cw/2)+dir*Math.abs(d)*40 - tl.cw/2;
+            var yy=y-d*VH*.34+ (k-(list.length-1)/2)*Math.abs(d)*30;
+            c.style.opacity=o.toFixed(3);
+            c.style.transform='translate3d('+x.toFixed(1)+'px,'+yy.toFixed(1)+'px,0)';
+            y+=h+16;
+          });
+        });
+      });
+      var cur=Math.round(clamp(f,0,S-1));
+      tl.rail.forEach(function(li,i){li.classList.toggle('on',i===cur)});
+    } else {
+      var N=cards.length, fwm=figW(VH*.34), fhm=fwm/AR, cym=VH*.15+fhm/2+VH*.03;
+      placeFig(tl.fig,VW/2,cym,fwm,1);
+      var g=clamp(p*N-.5,-.2,N-.8);
+      var nearest={};
+      cards.forEach(function(c,k){var st=+c.dataset.stop; var dd=Math.abs(g-k); nearest[st]=Math.min(nearest[st]==null?9:nearest[st],dd);
+        var d=g-k, o=clamp(1.2-Math.abs(d)*1.9,0,1);
+        var x=VW/2-tl.cw/2, base=cym+fhm/2+VH*.05;
+        c.style.opacity=o.toFixed(3);
+        c.style.transform='translate3d('+x.toFixed(1)+'px,'+(base-d*VH*.26).toFixed(1)+'px,0)';});
+      tl.years.forEach(function(y,i){var o=clamp(1.3-(nearest[i]==null?9:nearest[i])*1.4,0,1);
+        y.style.opacity=o.toFixed(3); y.style.transform='translate3d(0,'+(cym-y.offsetHeight/2).toFixed(1)+'px,0)';});
+    }
+  }
+
+  var dirty=true;
+  window.addEventListener('resize',layout);
+  window.addEventListener('load',layout);
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(layout); }
+  layout();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>
